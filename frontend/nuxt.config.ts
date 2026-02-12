@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
+  css: ["~/assets/css/main.css"],
   modules: ["@nuxtjs/i18n"],
   i18n: {
     locales: [
@@ -22,6 +23,17 @@ export default defineNuxtConfig({
       useCookie: true,
       cookieKey: "i18n_lang",
       redirectOn: "root",
+    },
+    customRoutes: "config",
+    pages: {
+      home: {
+        en: "/home",
+        de: "/home",
+      },
+      imprint: {
+        en: "/imprint",
+        de: "/impressum",
+      },
     },
   },
   runtimeConfig: {

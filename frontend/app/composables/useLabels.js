@@ -20,6 +20,7 @@ export const useLabels = async () => {
         },
       },
     }),
+    { watch: [locale] },
   );
 
   const t = (key) => {

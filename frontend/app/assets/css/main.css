@@ -1,0 +1,30 @@
+/* Fonts */
+/* Variable Font - Normal */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900; /* ← Supports all weights */
+  font-display: swap;
+  src: url("/fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+}
+
+/* Variable Font - Italic */
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100 900; /* ← Supports all weights */
+  font-display: swap;
+  src: url("/fonts/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+}
+
+/* Variables */
+:root {
+  --font-family-base: "Inter", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 16px;
+}
