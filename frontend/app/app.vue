@@ -1,13 +1,12 @@
 <script setup>
-import { NFlex } from "naive-ui";
-import TheLanguage from "./components/TheLanguage.vue";
+import { NConfigProvider, NFlex } from "naive-ui";
 const { isMobile } = useScreen();
 </script>
 <template>
-  <div>
+  <n-config-provider :theme-overrides="naiveThemeOverrides">
     <PreviewBanner />
     <n-flex v-if="!isMobile" class="desktop-container">
-      <TheLanguage />
+      <LanguageSwitch />
       <nav class="desktop-nav">
         <NavDesktop />
       </nav>
@@ -15,18 +14,19 @@ const { isMobile } = useScreen();
         <NuxtPage />
       </main>
     </n-flex>
-    <n-flex v-else vertical>
+    <n-flex v-else vertical class="mobile-container">
+      <NavMobile />
       <header>
-        <MobileHeader />
+        <HeaderMobile />
       </header>
-      <main>
+      <main class="mobile-main">
         <NuxtPage />
       </main>
       <footer>
-        <MobileFooter />
+        <FooterMobile />
       </footer>
     </n-flex>
-  </div>
+  </n-config-provider>
 </template>
 
 <style lang="css" scoped>
@@ -39,5 +39,23 @@ const { isMobile } = useScreen();
 .desktop-main {
   flex: 1;
   min-width: 0;
+}
+
+.mobile-container {
+  min-height: 100dvh;
+}
+
+header {
+  height: 75px;
+  flex-shrink: 0;
+}
+
+.mobile-main {
+  flex-grow: 1;
+  min-height: 0;
+}
+
+footer {
+  flex: none;
 }
 </style>

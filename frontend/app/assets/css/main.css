@@ -17,14 +17,76 @@
   src: url("/fonts/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Crimson Pro";
+  font-style: normal;
+  font-weight: 100 900; /* ← Supports all weights */
+  font-display: swap;
+  src: url("/fonts/CrimsonPro-VariableFont_wght.ttf") format("truetype");
+}
+
+/* Variable Font - Italic */
+@font-face {
+  font-family: "Crimson Pro";
+  font-style: italic;
+  font-weight: 100 900; /* ← Supports all weights */
+  font-display: swap;
+  src: url("/fonts/CrimsonPro-Italic-VariableFont_wght.ttf") format("truetype");
+}
+
 /* Variables */
 :root {
-  --font-family-base: "Inter", sans-serif;
+  font-size: 21px !important;
+  --font-family-base: "Crimson Pro", serif;
+  --color-background: #f3f1ed; /* linen */
+  --color-body-text: #2c2926; /* Soft black */
+  --color-headings: #1a1a1a; /* Another black */
+  --color-contrast: #faf9f6; /* Soft white */
+  --color-link: #3d6b9e; /* Soft blue */
+  --color-link-hover: #2c4f73;
+  --gradient-1: linear-gradient(135deg, #4fc4e0, #8dc63f);
+  --gradient-2: linear-gradient(135deg, #8dc63f, #e8e04a);
+  --gradient-3: linear-gradient(135deg, #e8e04a, #f5a623);
+  --gradient-4: linear-gradient(135deg, #f5a623, #e8688a);
+  --gradient-5: linear-gradient(135deg, #e8688a, #9b7bbf);
+  --gradient-6: linear-gradient(135deg, #9b7bbf, #4fc4e0);
 }
 
 body {
   margin: 0;
   font-family: var(--font-family-base);
+  font-size: 21px !important;
   font-weight: 400;
-  font-size: 16px;
+  line-height: 1.2;
+  font-optical-sizing: auto;
+  color: var(--color-body-text);
+  background-color: var(--color-background);
+}
+
+a {
+  color: var(--color-link);
+}
+a:hover {
+  color: var(--color-link-hover);
+}
+
+/* Site links (like imprint, etc.) */
+a.site-link {
+  color: var(--color-body-text);
+}
+
+/* Functional button links */
+a.button-link {
+  text-decoration: none;
+  color: var(--color-body-text);
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 18px !important;
+  }
+
+  body {
+    font-size: 18px !important;
+  }
 }

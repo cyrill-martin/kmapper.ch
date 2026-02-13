@@ -4,13 +4,13 @@ const { t } = await useLabels();
 <template>
   <div>
     <div class="legal">
-      <NuxtLinkLocale :to="{ name: 'imprint' }">{{
-        t("nav.imprint")
-      }}</NuxtLinkLocale>
+      <NuxtLinkLocale :to="{ name: 'imprint' }" class="site-link">
+        {{ t("nav.imprint") }}
+      </NuxtLinkLocale>
       |
-      <NuxtLinkLocale :to="{ name: 'privacy' }">{{
-        t("nav.privacy")
-      }}</NuxtLinkLocale>
+      <NuxtLinkLocale :to="{ name: 'privacy' }" class="site-link">
+        {{ t("nav.privacy") }}
+      </NuxtLinkLocale>
     </div>
     <small>{{ t("common.copyright") }}</small>
   </div>
@@ -19,8 +19,7 @@ const { t } = await useLabels();
 <style lang="css" scoped>
 .legal,
 small {
-  /* font-size: 0.72rem; */
-  font-size: 0.75rem;
-  margin: 1.5rem 0 0.5rem 0;
+  font-size: 0.8rem;
+  margin: 1rem 0 0rem 0;
 }
 </style>

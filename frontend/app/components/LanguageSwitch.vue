@@ -7,11 +7,17 @@ const { isMobile } = useScreen();
 
 <template>
   <div :class="{ desktopPosition: !isMobile }">
-    <NuxtLink :to="switchLocalePath('de')" :class="{ active: isGerman }"
+    <NuxtLink
+      :to="switchLocalePath('de')"
+      :class="{ active: isGerman }"
+      class="button-link"
       >DE</NuxtLink
     >
     |
-    <NuxtLink :to="switchLocalePath('en')" :class="{ active: !isGerman }"
+    <NuxtLink
+      :to="switchLocalePath('en')"
+      :class="{ active: !isGerman }"
+      class="button-link"
       >EN</NuxtLink
     >
   </div>
@@ -23,17 +29,10 @@ const { isMobile } = useScreen();
   top: 1rem;
   right: 1.5rem;
 }
-a {
-  text-decoration: none;
-}
 
 a.active {
   font-weight: bold;
   text-decoration: underline;
   cursor: default;
-}
-
-a:visited {
-  color: black;
 }
 </style>

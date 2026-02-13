@@ -7,7 +7,7 @@ export const useScreen = () => {
 
   const isMobile = computed(() => width.value <= mobileThreshold);
   const isTablet = computed(
-    () => width.value > mobileThreshold && width.value <= tabletThreshold
+    () => width.value > mobileThreshold && width.value <= tabletThreshold,
   );
   const isDesktop = computed(() => width.value > tabletThreshold);
 

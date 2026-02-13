@@ -1,42 +1,57 @@
 <script setup>
 import { NFlex } from "naive-ui";
 const { isHome } = useIsHome();
+const { isMobile } = useScreen();
 </script>
 
 <template>
-  <div class="site-logo">
+  <div :class="isMobile ? 'logo-mobile' : 'logo-desktop'">
     <span v-if="isHome">kmapper</span>
-    <NuxtLinkLocale v-else :to="{ name: 'home' }">
-      <n-flex justify="start" :size="0">
-        <img class="site-logo-k" src="/images/kmapper_site_logo_small.png" />
-        <span class="site-logo-mapper">mapper</span>
+    <NuxtLinkLocale v-else :to="{ name: 'home' }" class="button-link">
+      <n-flex justify="start" :size="0" align="center">
+        <img
+          :class="isMobile ? 'logo-k-mobile' : 'logo-k-desktop'"
+          src="/images/kmapper_site_logo_small.png"
+        />
+        <span :class="isMobile ? 'logo-mapper-mobile' : 'logo-mapper-desktop'"
+          >mapper</span
+        >
       </n-flex>
     </NuxtLinkLocale>
   </div>
 </template>
 
 <style lang="css" scoped>
-.site-logo {
+.logo-desktop {
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+.logo-mobile {
+  font-size: 1.5rem;
+  font-weight: 500;
   margin-top: 0.5rem;
 }
 
-.site-logo-k {
-  height: 39px;
+.logo-k-desktop {
+  height: 41px;
   flex-shrink: 0;
   position: relative;
-  top: -6.5px;
+  align-self: flex-start;
+}
+.logo-k-mobile {
+  height: 26px;
+  flex-shrink: 0;
+  position: relative;
+  align-self: flex-start;
 }
 
-.site-logo-mapper {
+.logo-mapper-desktop {
   flex: 1;
   min-width: 0;
 }
-
-.site-logo a,
-.site-log a:visited {
-  text-decoration: none;
-  color: black;
+.logo-mapper-mobile {
+  flex: 1;
+  min-width: 0;
 }
 </style>

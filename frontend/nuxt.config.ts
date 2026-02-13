@@ -34,6 +34,10 @@ export default defineNuxtConfig({
         en: "/imprint",
         de: "/impressum",
       },
+      organization: {
+        en: "/organization",
+        de: "/organisation",
+      },
     },
   },
   runtimeConfig: {
