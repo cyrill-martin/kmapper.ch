@@ -2,7 +2,7 @@
 const { t } = await useLabels();
 </script>
 <template>
-  <div class="contacts">
+  <section class="contacts">
     <address>
       {{ t("contact.company") }}<br />
       {{ t("contact.street") }}<br />
@@ -13,12 +13,12 @@ const { t } = await useLabels();
       ><br />
       <a :href="`mailto:${t('contact.mail')}`">{{ t("contact.mail") }}</a>
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="css" scoped>
 .contacts {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 address {
   font-style: normal;

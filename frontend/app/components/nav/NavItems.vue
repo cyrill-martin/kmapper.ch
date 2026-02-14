@@ -8,28 +8,30 @@ const secondaryItems = ["projects", "about"];
 </script>
 
 <template>
-  <ul class="main-items">
-    <li v-for="item in mainItems" :key="item">
-      <NuxtLinkLocale
-        :to="{ name: item }"
-        class="button-link service-link"
-        @click="isMobile ? toggleMobileNav() : null"
-      >
-        {{ t(`service.${item}`) }}
-      </NuxtLinkLocale>
-    </li>
-  </ul>
-  <ul class="secondary-items">
-    <li v-for="item in secondaryItems" :key="item">
-      <NuxtLinkLocale
-        :to="{ name: item }"
-        class="button-link secondary-link"
-        @click="isMobile ? toggleMobileNav() : null"
-      >
-        {{ t(`nav.${item}`) }}
-      </NuxtLinkLocale>
-    </li>
-  </ul>
+  <div>
+    <ul class="main-items">
+      <li v-for="item in mainItems" :key="item">
+        <NuxtLinkLocale
+          :to="{ name: item }"
+          class="button-link service-link"
+          @click="isMobile ? toggleMobileNav() : null"
+        >
+          {{ t(`service.${item}`) }}
+        </NuxtLinkLocale>
+      </li>
+    </ul>
+    <ul class="secondary-items">
+      <li v-for="item in secondaryItems" :key="item">
+        <NuxtLinkLocale
+          :to="{ name: item }"
+          class="button-link secondary-link"
+          @click="isMobile ? toggleMobileNav() : null"
+        >
+          {{ t(`nav.${item}`) }}
+        </NuxtLinkLocale>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style lang="css" scoped>

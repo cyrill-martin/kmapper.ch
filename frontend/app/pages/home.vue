@@ -1,5 +1,5 @@
 <script setup>
-// const { t } = await useLabels();
+const { t } = await useLabels();
 const { editableAttr, applyEditor } = useVisualEditor();
 const { isMobile } = useScreen();
 const home = reactive(useContent("home")); // home
@@ -14,6 +14,12 @@ watch(
     if (content) applyEditor();
   },
 );
+
+const services = [
+  ["curation", "ba"],
+  ["organization", "re"],
+  ["publication", "dev"],
+];
 </script>
 
 <template>
@@ -29,7 +35,7 @@ watch(
       :class="isMobile ? 'home-content-mobile' : 'home-content-desktop'"
       class="home-content-background"
     >
-      <div class="home-content-inner">
+      <section class="home-content-inner">
         <h1
           :data-directus="
             editableAttr({
@@ -42,8 +48,33 @@ watch(
         >
           {{ home.content.translations[0].headline }}
         </h1>
-        {{ home.content }}
-      </div>
+        <ul class="main-list">
+          <li v-for="item in services" :key="item[0]">
+            <NuxtLinkLocale
+              :to="{ name: item[0] }"
+              class="button-link kmapper-service"
+            >
+              {{ t(`service.${item[0]}`) }}
+            </NuxtLinkLocale>
+            <ul class="sub-list">
+              <li class="it-service">
+                {{ t(`service.${item[1]}`) }}
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h2
+          :data-directus="
+            editableAttr({
+              collection: 'home',
+              item: 1,
+              fields: 'translations',
+              mode: 'modal',
+            })
+          "
+          v-html="home.content.translations[0].subheading"
+        />
+      </section>
     </div>
 
     <div v-else>No page found</div>
@@ -74,5 +105,31 @@ watch(
 
 .home-content-inner {
   padding: 0 0.5rem;
+}
+
+.main-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.main-list li {
+  margin-bottom: 1rem;
+}
+
+.kmapper-service {
+  padding: 4px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  background: var(--color-body-text);
+  color: var(--color-contrast);
+}
+
+.sub-list {
+  list-style: none;
+}
+
+.sub-list li {
+  font-size: 1.25rem;
+  font-weight: 500;
 }
 </style>

@@ -31,8 +31,7 @@ const { isMobile } = useScreen();
 }
 
 a.active {
-  font-weight: bold;
-  text-decoration: underline;
+  font-weight: 700;
   cursor: default;
 }
 </style>
