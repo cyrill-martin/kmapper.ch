@@ -30,13 +30,33 @@ export default defineNuxtConfig({
         en: "/home",
         de: "/home",
       },
-      imprint: {
-        en: "/imprint",
-        de: "/impressum",
+      curation: {
+        en: "/curation",
+        de: "/kuration",
       },
       organization: {
         en: "/organization",
         de: "/organisation",
+      },
+      publication: {
+        en: "/publication",
+        de: "/publikation",
+      },
+      about: {
+        en: "/about",
+        de: "/ueber",
+      },
+      projects: {
+        en: "/projects",
+        de: "/projekte",
+      },
+      imprint: {
+        en: "/imprint",
+        de: "/impressum",
+      },
+      privacy: {
+        en: "/privacy",
+        de: "/datenschutz",
       },
     },
   },

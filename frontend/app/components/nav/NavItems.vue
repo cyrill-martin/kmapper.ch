@@ -53,15 +53,36 @@ ul {
 }
 
 li:hover a {
-  color: var(--color-contrast);
-  background: var(--color-body-text);
+  /* color: var(--color-contrast);
+  background: var(--color-body-text); */
+  border-radius: 4px;
 }
 
 .main-items li {
   margin: 0.25rem 0;
 }
 
+.main-items li:nth-child(1) a:hover {
+  background: var(--gradient-5);
+}
+
+.main-items li:nth-child(2) a:hover {
+  background: var(--gradient-2);
+}
+
+.main-items li:nth-child(3) a:hover {
+  background: var(--gradient-4);
+}
+
 .secondary-items li {
   margin: 0.15rem 0;
+}
+
+.secondary-items li:nth-child(1) a:hover {
+  background: var(--gradient-1);
+}
+
+.secondary-items li:nth-child(2) a:hover {
+  background: var(--gradient-6);
 }
 </style>

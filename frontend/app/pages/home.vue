@@ -117,11 +117,29 @@ const services = [
 }
 
 .kmapper-service {
-  padding: 4px;
+  padding: 4px 8px;
   font-size: 1.25rem;
   font-weight: 600;
+  border-radius: 4px;
+  background: var(--color-background);
   background: var(--color-body-text);
   color: var(--color-contrast);
+}
+
+.kmapper-service:hover {
+  color: var(--color-body-text);
+}
+
+.main-list li:nth-child(1) > a:hover {
+  background: var(--gradient-5);
+}
+
+.main-list li:nth-child(2) > a:hover {
+  background: var(--gradient-2);
+}
+
+.main-list li:nth-child(3) > a:hover {
+  background: var(--gradient-4);
 }
 
 .sub-list {

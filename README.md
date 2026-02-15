@@ -30,7 +30,7 @@ Based on this little fullstack: https://github.com/cyrill-martin/my-little-fulls
 
 ### Environment Variables
 
-1. SSH into container
+1. SSH into the server
 1. `cd /opt/kmapper.ch`
 1. Edit .env with `nano .env`
    - Ctrl + o
@@ -40,4 +40,15 @@ Based on this little fullstack: https://github.com/cyrill-martin/my-little-fulls
 
 ### Database
 
-Figure out your own workflows to handle database changes.
+#### Replace Prod with Local Data
+
+1. Stop Directus on Prod with:
+   1. SSH into the server
+   1. `cd /opt/kmapper.ch`
+   1. `docker compose -f docker-compose.prod.yml stop directus`
+1. Go to your local dev directory
+1. Copy the database to Prod with `rsync -avz ./directus/database/data.db infomaniak-vps:/opt/kmapper.ch/directus/database/data.db`
+1. Copy and sync the uploaded files with `rsync -avz --delete ./directus/uploads/ infomaniak-vps:/opt/kmapper.ch/directus/uploads/`
+1. (Optionally deploy the new fronten (see above))
+1. Restart the stack on Prod with `docker compose -f docker-compose.prod.yml up -d`
+1. Update the preview URLs in Directus
