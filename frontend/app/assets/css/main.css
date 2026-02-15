@@ -81,7 +81,7 @@ a.button-link {
   color: var(--color-body-text);
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   :root {
     font-size: 18px !important;
   }
@@ -89,4 +89,4 @@ a.button-link {
   body {
     font-size: 18px !important;
   }
-}
+} */

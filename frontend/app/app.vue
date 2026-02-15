@@ -46,7 +46,7 @@ const { isMobile } = useScreen();
 }
 
 header {
-  height: 50px;
+  height: 65px;
   flex-shrink: 0;
 }
 

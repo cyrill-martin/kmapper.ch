@@ -28,7 +28,7 @@ const { isMobile } = useScreen();
   margin-top: 0.5rem;
 }
 .logo-mobile {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 500;
   margin-top: 0.5rem;
 }
