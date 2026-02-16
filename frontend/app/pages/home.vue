@@ -93,10 +93,6 @@ const services = [
   background-repeat: no-repeat;
 }
 
-h1 {
-  /* margin-bottom: 2rem; */
-}
-
 .home-content-desktop {
   height: 100%;
 }
@@ -121,7 +117,7 @@ h1 {
 .kmapper-service {
   padding: 4px 8px;
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 700;
   background: var(--color-background);
   background: var(--color-body-text);
   color: var(--color-contrast);
@@ -149,6 +145,6 @@ h1 {
 
 .sub-list li {
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 </style>

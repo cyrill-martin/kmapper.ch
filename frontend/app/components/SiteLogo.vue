@@ -5,7 +5,7 @@ const { isMobile } = useScreen();
 </script>
 
 <template>
-  <div :class="isMobile ? 'logo-mobile' : 'logo-desktop'">
+  <div :class="isMobile ? 'logo-mobile' : 'logo-desktop'" class="logo">
     <span v-if="isHome">kmapper</span>
     <NuxtLinkLocale v-else :to="{ name: 'home' }" class="button-link">
       <n-flex justify="start" :size="0" align="center">
@@ -22,15 +22,16 @@ const { isMobile } = useScreen();
 </template>
 
 <style lang="css" scoped>
+.logo {
+  font-weight: 600;
+}
+
 .logo-desktop {
   font-size: 2rem;
-  font-weight: 500;
   margin-top: 0.5rem;
 }
 .logo-mobile {
   font-size: 1.25rem;
-  font-weight: 500;
-  margin-top: 0.5rem;
 }
 
 .logo-k-desktop {
@@ -40,7 +41,7 @@ const { isMobile } = useScreen();
   align-self: flex-start;
 }
 .logo-k-mobile {
-  height: 27px;
+  height: 26px;
   flex-shrink: 0;
   position: relative;
   align-self: flex-start;

@@ -6,7 +6,7 @@ import { NFlex } from "naive-ui";
     <div class="site-logo">
       <SiteLogo />
     </div>
-    <div class="site-language">
+    <div class="site-menu">
       <NavMobileTrigger />
     </div>
   </n-flex>
@@ -19,7 +19,7 @@ import { NFlex } from "naive-ui";
 .site-logo {
   flex: 1;
 }
-.site-language {
+.site-menu {
   flex: 1;
   text-align: right;
 }

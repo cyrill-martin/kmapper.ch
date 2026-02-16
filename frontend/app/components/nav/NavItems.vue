@@ -45,13 +45,13 @@ ul {
 .service-link {
   padding: 4px;
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .secondary-link {
   padding: 4px;
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .main-items li {
