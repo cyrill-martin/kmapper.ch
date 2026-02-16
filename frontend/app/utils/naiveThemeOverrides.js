@@ -1,5 +1,5 @@
 export const naiveThemeOverrides = {
   common: {
-    fontSize: "18px",
+    fontSize: "19px",
   },
 };

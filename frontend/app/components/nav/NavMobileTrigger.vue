@@ -8,6 +8,7 @@ const { toggleMobileNav } = useMobileNav();
 
 <style lang="css" scoped>
 .trigger {
+  font-weight: 500;
   padding-right: 1rem;
   cursor: pointer;
 }

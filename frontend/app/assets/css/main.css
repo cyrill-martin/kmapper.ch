@@ -18,26 +18,26 @@
 }
 
 @font-face {
-  font-family: "Crimson Pro";
+  font-family: "Satoshi";
   font-style: normal;
   font-weight: 100 900; /* ← Supports all weights */
   font-display: swap;
-  src: url("/fonts/CrimsonPro-VariableFont_wght.ttf") format("truetype");
+  src: url("/fonts/Satoshi-Variable.ttf") format("truetype");
 }
 
 /* Variable Font - Italic */
 @font-face {
-  font-family: "Crimson Pro";
+  font-family: "Satoshi";
   font-style: italic;
   font-weight: 100 900; /* ← Supports all weights */
   font-display: swap;
-  src: url("/fonts/CrimsonPro-Italic-VariableFont_wght.ttf") format("truetype");
+  src: url("/fonts/Satoshi-VariableItalic.ttf") format("truetype");
 }
 
 /* Variables */
 :root {
-  font-size: 21px !important;
-  --font-family-base: "Crimson Pro", serif;
+  font-size: 19px !important;
+  --font-family-base: "Satoshi", sans-serif;
   --color-background: #f3f1ed; /* linen */
   --color-body-text: #2c2926; /* Soft black */
   --color-headings: #1a1a1a; /* Another black */
@@ -55,9 +55,9 @@
 body {
   margin: 0;
   font-family: var(--font-family-base);
-  font-size: 21px !important;
+  font-size: 19px !important;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.4;
   font-optical-sizing: auto;
   color: var(--color-body-text);
   background-color: var(--color-background);

@@ -1,4 +1,6 @@
 <script setup>
+import LanguageSwitch from "../LanguageSwitch.vue";
+
 const { t } = await useLabels();
 const { toggleMobileNav } = useMobileNav();
 const { isMobile } = useScreen();
@@ -50,12 +52,6 @@ ul {
   padding: 4px;
   font-size: 1.1rem;
   font-weight: 500;
-}
-
-li:hover a {
-  /* color: var(--color-contrast);
-  background: var(--color-body-text); */
-  border-radius: 4px;
 }
 
 .main-items li {

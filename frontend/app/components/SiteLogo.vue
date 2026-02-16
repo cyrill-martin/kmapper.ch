@@ -34,13 +34,13 @@ const { isMobile } = useScreen();
 }
 
 .logo-k-desktop {
-  height: 41px;
+  height: 42px;
   flex-shrink: 0;
   position: relative;
   align-self: flex-start;
 }
 .logo-k-mobile {
-  height: 26px;
+  height: 27px;
   flex-shrink: 0;
   position: relative;
   align-self: flex-start;

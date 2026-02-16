@@ -57,9 +57,7 @@ const services = [
               {{ t(`service.${item[0]}`) }}
             </NuxtLinkLocale>
             <ul class="sub-list">
-              <li class="it-service">
-                {{ t(`service.${item[1]}`) }}
-              </li>
+              <li class="it-service">.{{ t(`service.${item[1]}`) }}</li>
             </ul>
           </li>
         </ul>
@@ -95,6 +93,10 @@ const services = [
   background-repeat: no-repeat;
 }
 
+h1 {
+  /* margin-bottom: 2rem; */
+}
+
 .home-content-desktop {
   height: 100%;
 }
@@ -120,7 +122,6 @@ const services = [
   padding: 4px 8px;
   font-size: 1.25rem;
   font-weight: 600;
-  border-radius: 4px;
   background: var(--color-background);
   background: var(--color-body-text);
   color: var(--color-contrast);
