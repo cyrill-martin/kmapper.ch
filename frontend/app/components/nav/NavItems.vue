@@ -1,6 +1,4 @@
 <script setup>
-import LanguageSwitch from "../LanguageSwitch.vue";
-
 const { t } = await useLabels();
 const { toggleMobileNav } = useMobileNav();
 const { isMobile } = useScreen();
@@ -58,15 +56,18 @@ ul {
   margin: 0.25rem 0;
 }
 
-.main-items li:nth-child(1) a:hover {
+.main-items li:nth-child(1) a:hover,
+.main-items li:nth-child(1) a.router-link-active {
   background: var(--gradient-5);
 }
 
-.main-items li:nth-child(2) a:hover {
+.main-items li:nth-child(2) a:hover,
+.main-items li:nth-child(2) a.router-link-active {
   background: var(--gradient-2);
 }
 
-.main-items li:nth-child(3) a:hover {
+.main-items li:nth-child(3) a:hover,
+.main-items li:nth-child(3) a.router-link-active {
   background: var(--gradient-4);
 }
 
@@ -74,11 +75,17 @@ ul {
   margin: 0.15rem 0;
 }
 
-.secondary-items li:nth-child(1) a:hover {
+.secondary-items li:nth-child(1) a:hover,
+.secondary-items li:nth-child(1) a.router-link-active {
   background: var(--gradient-1);
 }
 
-.secondary-items li:nth-child(2) a:hover {
+.secondary-items li:nth-child(2) a:hover,
+.secondary-items li:nth-child(2) a.router-link-active {
   background: var(--gradient-6);
+}
+
+a.router-link-active {
+  cursor: default;
 }
 </style>

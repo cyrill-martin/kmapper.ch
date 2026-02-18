@@ -9,7 +9,6 @@ const { toggleMobileNav } = useMobileNav();
 <style lang="css" scoped>
 .trigger {
   font-weight: 500;
-  font-size: 1.25rem;
   cursor: pointer;
 }
 </style>

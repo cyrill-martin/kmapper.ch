@@ -1,7 +1,7 @@
 <script setup>
 const { t } = await useLabels();
 const { editableAttr, applyEditor } = useVisualEditor();
-const { isMobile } = useScreen();
+const { isDesktop } = useScreen();
 const home = reactive(useContent("home")); // home
 
 onMounted(() => {
@@ -23,7 +23,7 @@ const services = [
 </script>
 
 <template>
-  <div :class="isMobile ? 'home-container-mobile' : 'home-container-desktop'">
+  <div :class="isDesktop ? 'home-container-desktop' : 'home-container-mobile'">
     <div v-if="home.pending">Loading...</div>
 
     <div v-else-if="home.error" style="color: red">
@@ -32,10 +32,10 @@ const services = [
 
     <div
       v-else-if="home.content"
-      :class="isMobile ? 'home-content-mobile' : 'home-content-desktop'"
+      :class="isDesktop ? 'home-content-desktop' : 'home-content-mobile'"
       class="home-content-background"
     >
-      <section class="home-content-inner">
+      <div class="inner-page">
         <h1
           :data-directus="
             editableAttr({
@@ -72,7 +72,7 @@ const services = [
           "
           v-html="home.content.translations[0].subheading"
         />
-      </section>
+      </div>
     </div>
 
     <div v-else>No page found</div>
@@ -99,10 +99,6 @@ const services = [
 .home-content-mobile {
   width: 100%;
   aspect-ratio: 727 / 1091;
-}
-
-.home-content-inner {
-  padding: 0 0.5rem;
 }
 
 .main-list {

@@ -1,11 +1,11 @@
 <script setup>
 import { NConfigProvider, NFlex } from "naive-ui";
-const { isMobile } = useScreen();
+const { isDesktop } = useScreen();
 </script>
 <template>
   <n-config-provider :theme-overrides="naiveThemeOverrides">
     <PreviewBanner />
-    <n-flex v-if="!isMobile" class="desktop-container">
+    <n-flex v-if="isDesktop" class="desktop-container">
       <LanguageSwitch />
       <nav class="desktop-nav">
         <NavDesktop />
@@ -32,8 +32,8 @@ const { isMobile } = useScreen();
 <style lang="css" scoped>
 .desktop-nav {
   width: 30%;
-  flex-shrink: 0;
-  padding: 1rem;
+  flex-shrink: 1;
+  padding: 0.5rem 0.5rem 0 1rem;
 }
 
 .desktop-main {

@@ -63,8 +63,17 @@ body {
   background-color: var(--color-background);
 }
 
+.inner-page {
+  padding: 0 0.5rem;
+}
+
 h1 {
   margin-bottom: 2rem;
+  line-height: 1.1;
+}
+
+h2 {
+  line-height: 1.1;
 }
 
 a {
@@ -84,13 +93,3 @@ a.button-link {
   text-decoration: none;
   color: var(--color-body-text);
 }
-
-/* @media (max-width: 768px) {
-  :root {
-    font-size: 18px !important;
-  }
-
-  body {
-    font-size: 18px !important;
-  }
-} */

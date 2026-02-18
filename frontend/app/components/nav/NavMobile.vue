@@ -31,11 +31,9 @@ const { t } = await useLabels();
   text-align: right;
   background-color: var(--color-background);
 }
-.drawer-close {
-  font-size: 1rem;
-}
 
 :deep(.kmapper-drawer-header) {
   border-bottom: none !important;
+  margin-bottom: 1.5rem;
 }
 </style>

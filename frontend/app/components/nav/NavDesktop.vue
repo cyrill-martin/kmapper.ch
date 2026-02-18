@@ -20,7 +20,8 @@ import { NFlex } from "naive-ui";
 <style lang="css" scoped>
 .navigation-container {
   position: fixed;
-  height: 96vh;
+  top: 0.5rem;
+  bottom: 0.5rem;
 }
 
 .site-logo {
@@ -32,6 +33,6 @@ import { NFlex } from "naive-ui";
 }
 
 .small-print {
-  flex: none;
+  margin-top: auto;
 }
 </style>

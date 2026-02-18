@@ -2,11 +2,11 @@
 const { locale } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
 const isGerman = computed(() => locale.value === "de");
-const { isMobile } = useScreen();
+const { isDesktop } = useScreen();
 </script>
 
 <template>
-  <div :class="{ desktopPosition: !isMobile }">
+  <div :class="{ 'switch-desktop': isDesktop }">
     <NuxtLink
       :to="switchLocalePath('de')"
       :class="{ active: isGerman }"
@@ -24,7 +24,7 @@ const { isMobile } = useScreen();
 </template>
 
 <style lang="css" scoped>
-.desktopPosition {
+.switch-desktop {
   position: fixed;
   top: 1rem;
   right: 1.5rem;

@@ -4,9 +4,9 @@ const { t } = await useLabels();
 <template>
   <section class="contacts">
     <address>
-      {{ t("contact.company") }}<br />
-      {{ t("contact.street") }}<br />
-      {{ t("contact.zip") }} {{ t("contact.city") }}
+      <span>{{ t("contact.company") }}</span
+      ><br />
+      <span>{{ t("contact.city") }}, {{ t("contact.country") }}</span>
     </address>
     <div>
       <a :href="`tel:${t('contact.phone')}`">{{ t("contact.phone") }}</a

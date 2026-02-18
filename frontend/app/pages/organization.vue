@@ -1,11 +1,7 @@
-<!-- <script setup>
-const { data: service } = await useContent("services", {
-  filter: { slug: "organization" },
-});
+<script setup>
+const organization = reactive(useContent("services", 2));
 </script>
 
 <template>
-  <ServicePage :service="service" />
-</template> -->
-
-<template></template>
+  <ServicePage v-if="organization" :service="organization" />
+</template>
