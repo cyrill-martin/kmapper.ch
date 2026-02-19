@@ -15,6 +15,14 @@ watch(
     if (content) applyEditor();
   },
 );
+
+const maxImgWidth = computed(() => {
+  return isDesktop.value ? "700px" : "100%";
+});
+
+const maxPWidth = computed(() => {
+  return isDesktop.value ? "900px" : "100%";
+});
 </script>
 
 <template>
@@ -55,7 +63,7 @@ watch(
           :src="assetUrl(props.service.content.service_image)"
           :alt="props.service.content.translations[0].image_alt"
           class="service-image"
-          :style="{ maxWidth: isDesktop ? '700px' : '100%' }"
+          :style="{ maxWidth: maxImgWidth }"
           :data-directus="
             editableAttr({
               collection: 'services',
@@ -68,6 +76,7 @@ watch(
       </p>
       <div
         v-html="props.service.content.translations[0].content"
+        :style="{ maxWidth: maxPWidth }"
         :data-directus="
           editableAttr({
             collection: 'services',

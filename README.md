@@ -51,4 +51,4 @@ Based on this little fullstack: https://github.com/cyrill-martin/my-little-fulls
 1. Copy and sync the uploaded files with `rsync -avz --delete ./directus/uploads/ infomaniak-vps:/opt/kmapper.ch/directus/uploads/`
 1. (Optionally deploy the new fronten (see above))
 1. Restart the stack on Prod with `docker compose -f docker-compose.prod.yml up -d`
-1. Update the preview URLs in Directus
+1. Update the preview URLs in Directus (solve THIS)
