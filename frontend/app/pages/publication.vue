@@ -3,5 +3,5 @@ const publication = reactive(useContent("services", 3));
 </script>
 
 <template>
-  <ServicePage v-if="publication" :service="publication" />
+  <ServicePage v-if="publication" :service="publication" :id="3" />
 </template>
