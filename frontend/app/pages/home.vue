@@ -30,7 +30,7 @@ watch(
       :class="isDesktop ? 'home-content-desktop' : 'home-content-mobile'"
       class="home-content-background"
     >
-      <div class="inner-page">
+      <div class="inner-home">
         <div>
           <p class="hero-claim">
             <NuxtLinkLocale
@@ -94,6 +94,10 @@ watch(
 .home-content-mobile {
   width: 100%;
   aspect-ratio: 727 / 1091;
+}
+
+.inner-home {
+  padding: 0 0.5rem;
 }
 
 .hero-claim {
