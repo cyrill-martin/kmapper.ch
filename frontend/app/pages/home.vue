@@ -2,6 +2,7 @@
 const { t } = await useLabels();
 const { editableAttr, applyEditor } = useVisualEditor();
 const { isDesktop } = useScreen();
+const { locale } = useI18n();
 const home = reactive(useContent("home")); // home
 
 onMounted(() => {
@@ -14,12 +15,6 @@ watch(
     if (content) applyEditor();
   },
 );
-
-const services = [
-  ["curation", "ba"],
-  ["organization", "re"],
-  ["publication", "dev"],
-];
 </script>
 
 <template>
@@ -36,32 +31,31 @@ const services = [
       class="home-content-background"
     >
       <div class="inner-page">
-        <h1
-          :data-directus="
-            editableAttr({
-              collection: 'home',
-              item: 1,
-              fields: 'translations',
-              mode: 'modal',
-            })
-          "
-        >
-          {{ home.content.translations[0].headline }}
-        </h1>
-        <ul class="main-list">
-          <li v-for="item in services" :key="item[0]">
+        <div>
+          <p class="hero-claim">
             <NuxtLinkLocale
-              :to="{ name: item[0] }"
-              class="button-link kmapper-service"
+              :to="{ name: 'curation' }"
+              class="button-link kmapper-service curation"
             >
-              {{ t(`service.${item[0]}`) }}
-            </NuxtLinkLocale>
-            <ul class="sub-list">
-              <li class="it-service">.{{ t(`service.${item[1]}`) }}</li>
-            </ul>
-          </li>
-        </ul>
-        <h2
+              {{ t(`service.curation`) }} </NuxtLinkLocale
+            >,
+            <NuxtLinkLocale
+              :to="{ name: 'organization' }"
+              class="button-link kmapper-service organization"
+            >
+              {{ t(`service.organization`) }} </NuxtLinkLocale
+            ><span v-if="locale === 'en'">,</span><br />
+            {{ t(`home.claimAnd`) }}
+            <NuxtLinkLocale
+              :to="{ name: 'publication' }"
+              class="button-link kmapper-service publication"
+            >
+              {{ t(`service.publication`) }} </NuxtLinkLocale
+            ><br />
+            {{ t(`home.claimEnd`) }}
+          </p>
+        </div>
+        <div
           :data-directus="
             editableAttr({
               collection: 'home',
@@ -70,7 +64,8 @@ const services = [
               mode: 'modal',
             })
           "
-          v-html="home.content.translations[0].subheading"
+          class="hero-content"
+          v-html="home.content.translations[0].content"
         />
       </div>
     </div>
@@ -101,19 +96,20 @@ const services = [
   aspect-ratio: 727 / 1091;
 }
 
-.main-list {
-  list-style: none;
-  padding-left: 0;
+.hero-claim {
+  padding-top: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.7;
 }
 
-.main-list li {
-  margin-bottom: 1rem;
+.hero-content {
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .kmapper-service {
   padding: 4px 8px;
-  font-size: 1.25rem;
-  font-weight: 700;
   background: var(--color-background);
   background: var(--color-body-text);
   color: var(--color-contrast);
@@ -123,24 +119,15 @@ const services = [
   color: var(--color-body-text);
 }
 
-.main-list li:nth-child(1) > a:hover {
+.curation:hover {
   background: var(--gradient-5);
 }
 
-.main-list li:nth-child(2) > a:hover {
+.organization:hover {
   background: var(--gradient-2);
 }
 
-.main-list li:nth-child(3) > a:hover {
+.publication:hover {
   background: var(--gradient-4);
-}
-
-.sub-list {
-  list-style: none;
-}
-
-.sub-list li {
-  font-size: 1.25rem;
-  font-weight: 600;
 }
 </style>
