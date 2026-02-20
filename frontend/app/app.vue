@@ -5,6 +5,7 @@ const { isDesktop } = useScreen();
 <template>
   <n-config-provider :theme-overrides="naiveThemeOverrides">
     <PreviewBanner />
+    <NavMobile v-show="!isDesktop" />
     <n-flex v-if="isDesktop" class="desktop-container">
       <LanguageSwitch />
       <nav class="desktop-nav">
@@ -15,7 +16,6 @@ const { isDesktop } = useScreen();
       </main>
     </n-flex>
     <n-flex v-else vertical class="mobile-container">
-      <NavMobile />
       <header>
         <HeaderMobile />
       </header>

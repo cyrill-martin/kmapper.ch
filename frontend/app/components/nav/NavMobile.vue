@@ -5,22 +5,29 @@ const { t } = await useLabels();
 </script>
 
 <template>
-  <n-drawer v-model:show="showMobileNav" :width="'75%'" :auto-focus="false">
-    <n-drawer-content
-      class="mobile-nav"
-      :header-class="'kmapper-drawer-header'"
+  <div>
+    <n-drawer
+      v-model:show="showMobileNav"
+      :width="'75%'"
+      :auto-focus="false"
+      to="#teleports"
     >
-      <template #header>
-        <span style="cursor: pointer" @click="closeMobileNav">{{
-          t("nav.close")
-        }}</span>
-      </template>
-      <LanguageSwitch />
-      <nav>
-        <NavItems />
-      </nav>
-    </n-drawer-content>
-  </n-drawer>
+      <n-drawer-content
+        class="mobile-nav"
+        :header-class="'kmapper-drawer-header'"
+      >
+        <template #header>
+          <span style="cursor: pointer" @click="closeMobileNav">{{
+            t("nav.close")
+          }}</span>
+        </template>
+        <LanguageSwitch />
+        <nav>
+          <NavItems />
+        </nav>
+      </n-drawer-content>
+    </n-drawer>
+  </div>
 </template>
 
 <style lang="css" scoped>
