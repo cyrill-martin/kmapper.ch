@@ -1,9 +1,11 @@
 <script setup>
+const { openMobileNav } = useMobileNav();
 const { t } = await useLabels();
-const { toggleMobileNav } = useMobileNav();
 </script>
 <template>
-  <div class="trigger" @click="toggleMobileNav">{{ t("nav.trigger") }}</div>
+  <div class="trigger" @click="openMobileNav">
+    {{ t("nav.trigger") }}
+  </div>
 </template>
 
 <style lang="css" scoped>

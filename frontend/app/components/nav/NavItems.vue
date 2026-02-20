@@ -1,10 +1,8 @@
 <script setup>
-const { t } = await useLabels();
-const { toggleMobileNav } = useMobileNav();
-const { isMobile } = useScreen();
-
+const { closeMobileNav } = useMobileNav();
 const mainItems = ["curation", "organization", "publication"];
 const secondaryItems = ["projects", "about"];
+const { t } = await useLabels();
 </script>
 
 <template>
@@ -14,7 +12,7 @@ const secondaryItems = ["projects", "about"];
         <NuxtLinkLocale
           :to="{ name: item }"
           class="button-link service-link"
-          @click="isMobile ? toggleMobileNav() : null"
+          @click="closeMobileNav"
         >
           {{ t(`service.${item}`) }}
         </NuxtLinkLocale>
@@ -25,7 +23,7 @@ const secondaryItems = ["projects", "about"];
         <NuxtLinkLocale
           :to="{ name: item }"
           class="button-link secondary-link"
-          @click="isMobile ? toggleMobileNav() : null"
+          @click="closeMobileNav"
         >
           {{ t(`nav.${item}`) }}
         </NuxtLinkLocale>

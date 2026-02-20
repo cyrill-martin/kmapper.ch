@@ -1,6 +1,6 @@
 <script setup>
 import { NDrawer, NDrawerContent } from "naive-ui";
-const { showMobileNav, toggleMobileNav } = useMobileNav();
+const { showMobileNav, closeMobileNav } = useMobileNav();
 const { t } = await useLabels();
 </script>
 
@@ -11,12 +11,9 @@ const { t } = await useLabels();
       :header-class="'kmapper-drawer-header'"
     >
       <template #header>
-        <span
-          class="drawer-close"
-          style="cursor: pointer"
-          @click="toggleMobileNav"
-          >{{ t("nav.close") }}</span
-        >
+        <span style="cursor: pointer" @click="closeMobileNav">{{
+          t("nav.close")
+        }}</span>
       </template>
       <LanguageSwitch />
       <nav>

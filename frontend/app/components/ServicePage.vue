@@ -18,11 +18,11 @@ watch(
 );
 
 const maxImgWidth = computed(() => {
-  return isDesktop.value ? "700px" : "100%";
+  return isDesktop.value ? "65%" : "100%";
 });
 
 const maxPWidth = computed(() => {
-  return isDesktop.value ? "900px" : "100%";
+  return isDesktop.value ? "65%" : "100%";
 });
 
 const nextLinkText = computed(() => {
@@ -40,7 +40,10 @@ const nextLinkText = computed(() => {
       Error: {{ props.service.error.message }}
     </div>
 
-    <div v-else-if="props.service.content" class="inner-page">
+    <div
+      v-else-if="props.service.content"
+      :class="isDesktop ? 'inner-page-desktop' : 'inner-page-mobile'"
+    >
       <h1
         :data-directus="
           editableAttr({

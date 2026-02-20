@@ -1,8 +1,9 @@
 <script setup>
-const { t } = await useLabels();
 const { editableAttr, applyEditor } = useVisualEditor();
 const { isDesktop } = useScreen();
 const { locale } = useI18n();
+const { t } = await useLabels();
+
 const home = reactive(useContent("home")); // home
 
 onMounted(() => {

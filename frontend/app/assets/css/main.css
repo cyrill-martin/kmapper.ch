@@ -63,8 +63,11 @@ body {
   background-color: var(--color-background);
 }
 
-.inner-page {
+.inner-page-desktop {
   padding: 0.5rem 0.5rem;
+}
+.inner-page-mobile {
+  padding: 0 0.5rem;
 }
 
 h1 {

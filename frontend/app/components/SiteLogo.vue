@@ -1,19 +1,19 @@
 <script setup>
 import { NFlex } from "naive-ui";
 const { isHome } = useIsHome();
-const { isMobile } = useScreen();
+const { isDesktop } = useScreen();
 </script>
 
 <template>
-  <div :class="isMobile ? 'logo-mobile' : 'logo-desktop'" class="logo">
+  <div :class="isDesktop ? 'logo-desktop' : 'logo-mobile'" class="logo">
     <span v-if="isHome">kmapper</span>
     <NuxtLinkLocale v-else :to="{ name: 'home' }" class="button-link">
       <n-flex justify="start" :size="0" align="center">
         <img
-          :class="isMobile ? 'logo-k-mobile' : 'logo-k-desktop'"
+          :class="isDesktop ? 'logo-k-desktop' : 'logo-k-mobile'"
           src="/images/kmapper_site_logo_small.png"
         />
-        <span :class="isMobile ? 'logo-mapper-mobile' : 'logo-mapper-desktop'"
+        <span :class="isDesktop ? 'logo-mapper-desktop' : 'logo-mapper-mobile'"
           >mapper</span
         >
       </n-flex>
