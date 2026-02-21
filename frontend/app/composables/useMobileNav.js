@@ -1,17 +1,18 @@
 export const useMobileNav = () => {
   const showMobileNav = useState("showMobileNav", () => false);
+  const { isDesktop } = useScreen();
 
   const openMobileNav = () => {
-    console.log("before open - showMobileNav:", showMobileNav.value);
     showMobileNav.value = true;
-    console.log("after open - showMobileNav:", showMobileNav.value);
   };
 
   const closeMobileNav = () => {
-    console.log("before close - showMobileNav:", showMobileNav.value);
     showMobileNav.value = false;
-    console.log("after close - showMobileNav:", showMobileNav.value);
   };
+
+  watch(isDesktop, (val) => {
+    if (val) showMobileNav.value = false;
+  });
 
   return {
     showMobileNav,

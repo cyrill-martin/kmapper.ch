@@ -39,7 +39,7 @@ watch(
               class="button-link kmapper-service curation"
             >
               {{ t(`service.curation`) }} </NuxtLinkLocale
-            >,
+            >,<br />
             <NuxtLinkLocale
               :to="{ name: 'organization' }"
               class="button-link kmapper-service organization"
