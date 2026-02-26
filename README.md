@@ -20,6 +20,7 @@ Based on this little fullstack: https://github.com/cyrill-martin/my-little-fulls
 1. `cd /opt/kmapper.ch`
 1. Pull lates code with `git pull`
 1. Rebuild and restart the frontend container with `docker compose -f docker-compose.prod.yml up -d --build frontend`
+1. Clear build cache with `docker builder prune -f`
 
 ### Directus (config/extensions)
 
@@ -27,6 +28,7 @@ Based on this little fullstack: https://github.com/cyrill-martin/my-little-fulls
 1. `cd /opt/kmapper.ch`
 1. Pull lates code with `git pull`
 1. Rebuild and restart the directus container with `docker compose -f docker-compose.prod.yml up -d --build directus`
+1. Clear build cache with `docker builder prune -f`
 
 ### Environment Variables
 
@@ -52,3 +54,4 @@ Based on this little fullstack: https://github.com/cyrill-martin/my-little-fulls
 1. (Optionally deploy the new fronten (see above))
 1. Restart the stack on Prod with `docker compose -f docker-compose.prod.yml up -d`
 1. Update the preview URLs in Directus (solve THIS)
+1. Clear build cache with `docker builder prune -f`
