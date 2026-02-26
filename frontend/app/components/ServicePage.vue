@@ -130,6 +130,7 @@ const nextLinkText = computed(() => {
 
 <style lang="css" scoped>
 .service-keywords {
+  font-size: 1.17rem;
   font-weight: 600;
 }
 .service-image {
