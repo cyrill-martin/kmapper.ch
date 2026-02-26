@@ -56,7 +56,8 @@ const nextLinkText = computed(() => {
       >
         {{ props.service.content.translations[0].title }}
       </h1>
-      <h2
+      <div
+        class="service-keywords"
         :data-directus="
           editableAttr({
             collection: 'services',
@@ -66,24 +67,30 @@ const nextLinkText = computed(() => {
           })
         "
       >
-        {{ props.service.content.translations[0].headline }}
-      </h2>
-      <p>
-        <img
-          :src="assetUrl(props.service.content.service_image)"
-          :alt="props.service.content.translations[0].image_alt"
-          class="service-image"
-          :style="{ maxWidth: maxImgWidth }"
-          :data-directus="
-            editableAttr({
-              collection: 'services',
-              item: props.id,
-              fields: 'service_image',
-              mode: 'modal',
-            })
-          "
-        />
-      </p>
+        <p>
+          {{
+            props.service.content.translations[0].visual_keywords.join(" · ")
+          }}
+        </p>
+      </div>
+      <div>
+        <p>
+          <img
+            :src="assetUrl(props.service.content.service_image)"
+            :alt="props.service.content.translations[0].image_alt"
+            class="service-image"
+            :style="{ maxWidth: maxImgWidth }"
+            :data-directus="
+              editableAttr({
+                collection: 'services',
+                item: props.id,
+                fields: 'service_image',
+                mode: 'modal',
+              })
+            "
+          />
+        </p>
+      </div>
       <div
         v-html="props.service.content.translations[0].content"
         :style="{ maxWidth: maxPWidth }"
@@ -122,6 +129,9 @@ const nextLinkText = computed(() => {
 </template>
 
 <style lang="css" scoped>
+.service-keywords {
+  font-weight: 600;
+}
 .service-image {
   mix-blend-mode: multiply;
   filter: sepia(0.15) contrast(1.05);
