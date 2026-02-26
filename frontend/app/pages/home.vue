@@ -77,10 +77,10 @@ watch(
 
 <style lang="css" scoped>
 .home-container-desktop {
-  height: 96vh;
+  height: 95vh;
 }
 .home-container-mobile {
-  height: auto; /* let content decide */
+  height: auto;
 }
 
 .home-content-background {
