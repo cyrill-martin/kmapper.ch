@@ -2,7 +2,6 @@
 const { editableAttr, applyEditor } = useVisualEditor();
 const { isDesktop } = useScreen();
 const { directusLocale } = useDirectusLocale();
-// const { t } = await useLabels();
 
 const about = reactive(
   useContent("about", null, [

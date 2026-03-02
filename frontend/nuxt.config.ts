@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     defaultLocale: "de",
     strategy: "prefix",
     detectBrowserLanguage: {
-      useCookie: true,
+      useCookie: false,
       cookieKey: "i18n_lang",
       redirectOn: "root",
     },

@@ -4,7 +4,7 @@ const { isDesktop } = useScreen();
 const { locale } = useI18n();
 const { t } = await useLabels();
 
-const home = reactive(useContent("home")); // home
+const home = reactive(useContent("home"));
 
 onMounted(() => {
   if (home.content) applyEditor();
