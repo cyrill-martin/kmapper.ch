@@ -1,5 +1,6 @@
 <script setup>
 import { NCard, NFlex } from "naive-ui";
+import { computed } from "vue";
 const { editableAttr, applyEditor } = useVisualEditor();
 const { isDesktop } = useScreen();
 const { assetUrl } = useDirectus();
@@ -9,6 +10,12 @@ const projects = reactive(useCollection("projects"));
 
 const maxDivWidth = computed(() => {
   return isDesktop.value ? "90%" : "100%";
+});
+
+const cardPadding = computed(() => {
+  const pD = "1rem";
+  const pM = "0.5rem";
+  return isDesktop.value ? `0 ${pD} ${pD} ${pD}` : `0 ${pM} ${pM} ${pM}`;
 });
 
 const cardGradient = (sortNumber) =>
@@ -60,7 +67,7 @@ watch(
           class="project-card"
           :content-style="{
             background: cardGradient(project.sort),
-            padding: '0 1rem 1.5rem 1rem',
+            padding: cardPadding,
           }"
           :data-directus="
             editableAttr({
@@ -78,6 +85,7 @@ watch(
                 {{ project.translations[0].description }}
               </div>
               <div class="project-url">
+                &#8594;
                 <a
                   :href="project.url"
                   target="_blank"
@@ -92,16 +100,28 @@ watch(
                 v-html="project.translations[0].notes"
               />
               <div class="project-teaser">
-                <img
-                  :src="assetUrl(project.project_image)"
-                  :alt="`Screenshot ${project.url_text}`"
-                  class="service-image"
-                  style="width: 100%; height: auto"
-                />
+                <a
+                  :href="project.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    :src="assetUrl(project.project_image)"
+                    :alt="`Screenshot ${project.url_text}`"
+                    class="service-image"
+                    style="width: 100%; height: auto"
+                  />
+                </a>
               </div>
             </n-flex>
           </n-flex>
         </n-card>
+      </div>
+      <div class="next-route">
+        &#8594;
+        <NuxtLinkLocale :to="{ name: 'about' }" class="site-link">
+          {{ t("nav.about") }}
+        </NuxtLinkLocale>
       </div>
     </div>
 

@@ -114,7 +114,7 @@ const nextLinkText = computed(() => {
           })
         "
       >
-        →
+        &#8594;
         <NuxtLinkLocale
           :to="{ name: props.service.content.next_route }"
           class="site-link"

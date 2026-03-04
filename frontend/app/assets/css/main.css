@@ -40,10 +40,11 @@
   --font-family-base: "Satoshi", sans-serif;
   --color-background: #f3f1ed; /* linen */
   --color-body-text: #2c2926; /* Soft black */
-  --color-headings: #1a1a1a; /* Another black */
   --color-contrast: #faf9f6; /* Soft white */
-  --color-link: #3d6b9e; /* Soft blue */
-  --color-link-hover: #2c4f73;
+  /* --color-link: #3d6b9e;
+  --color-link-hover: #2c4f73; */
+  --color-link: #1e3a8a; /* Navy blau */
+  --color-link-hover: #1e40af; /* Etwas heller, bleibt blau */
   --gradient-1: linear-gradient(135deg, #4fc4e0, #8dc63f);
   --gradient-2: linear-gradient(135deg, #8dc63f, #e8e04a);
   --gradient-3: linear-gradient(135deg, #e8e04a, #f5a623);
@@ -79,6 +80,7 @@ h2 {
   line-height: 1.1;
 }
 
+/* External links */
 a {
   color: var(--color-link);
 }
@@ -86,7 +88,7 @@ a:hover {
   color: var(--color-link-hover);
 }
 
-/* Site links (like imprint, etc.) */
+/* Internal site links (like imprint, etc.) */
 a.site-link {
   color: var(--color-body-text);
 }
@@ -97,13 +99,24 @@ a.button-link {
   color: var(--color-body-text);
 }
 
-ul {
+ul:not(.nav-ul) {
   padding-left: 0.25rem;
   margin-left: 0;
-  list-style-position: inside; /* Forces bullets to stay within text boundaries */
+  list-style-position: inside;
+  list-style-type: disc;
 }
 
-ul ul {
+ul:not(.nav-ul) li {
+  text-indent: -1rem;
+  margin-left: 1rem;
+}
+
+.about-block ul li {
+  text-indent: 0;
+  margin-left: 0;
+}
+
+ul:not(.nav-ul) ul {
   padding-left: 2em;
   list-style-position: outside;
 }

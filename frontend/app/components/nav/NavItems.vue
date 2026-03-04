@@ -7,7 +7,7 @@ const { t } = await useLabels();
 
 <template>
   <div>
-    <ul class="main-items">
+    <ul class="main-items nav-ul">
       <li v-for="item in mainItems" :key="item">
         <NuxtLinkLocale
           :to="{ name: item }"
@@ -18,7 +18,7 @@ const { t } = await useLabels();
         </NuxtLinkLocale>
       </li>
     </ul>
-    <ul class="secondary-items">
+    <ul class="secondary-items nav-ul">
       <li v-for="item in secondaryItems" :key="item">
         <NuxtLinkLocale
           :to="{ name: item }"
@@ -33,7 +33,7 @@ const { t } = await useLabels();
 </template>
 
 <style lang="css" scoped>
-ul {
+.nav-ul {
   list-style: none;
   padding-left: 0;
 }
@@ -45,7 +45,7 @@ ul {
 }
 
 .secondary-link {
-  padding: 4px;
+  padding: 3px;
   font-size: 1.1rem;
   font-weight: 600;
 }
