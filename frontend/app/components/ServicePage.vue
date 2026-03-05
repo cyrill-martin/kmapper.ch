@@ -30,6 +30,9 @@ const nextLinkText = computed(() => {
     ? t(`nav.projects`)
     : t(`service.${props.service.content.next_route}`);
 });
+
+const seo = computed(() => props.service.content?.seo);
+useSeo(seo);
 </script>
 
 <template>

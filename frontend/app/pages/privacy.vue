@@ -18,6 +18,9 @@ watch(
     if (content) applyEditor();
   },
 );
+
+const seo = computed(() => privacy.content?.seo);
+useSeo(seo);
 </script>
 
 <template>

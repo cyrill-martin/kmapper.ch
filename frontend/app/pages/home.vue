@@ -8,6 +8,8 @@ const home = reactive(useContent("home"));
 
 onMounted(() => {
   if (home.content) applyEditor();
+
+  if (home.content) console.log(home.content);
 });
 
 watch(
@@ -16,6 +18,9 @@ watch(
     if (content) applyEditor();
   },
 );
+
+const seo = computed(() => home.content?.seo);
+useSeo(seo);
 </script>
 
 <template>

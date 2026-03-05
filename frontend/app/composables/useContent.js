@@ -14,10 +14,21 @@ export const useContent = (collection, id = null, extraFields = []) => {
     () =>
       getItems(collection, {
         filter: getFilter(id),
-        fields: ["*", "translations.*", ...extraFields],
+        fields: [
+          "*",
+          "translations.*",
+          "seo.*",
+          "seo.translations.*",
+          ...extraFields,
+        ],
         deep: {
           translations: {
             _filter: { languages_code: { _eq: directusLocale.value } },
+          },
+          seo: {
+            translations: {
+              _filter: { languages_code: { _eq: directusLocale.value } },
+            },
           },
         },
         limit: 1,

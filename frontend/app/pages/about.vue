@@ -41,6 +41,9 @@ watch(
     if (content) applyEditor();
   },
 );
+
+const seo = computed(() => about.content?.seo);
+useSeo(seo);
 </script>
 
 <template>
@@ -68,31 +71,22 @@ watch(
       >
         {{ about.content.translations[0].title }}
       </h1>
-      <div v-for="block in aboutBlocks" :key="block.id">
-        <h2
-          :data-directus="
-            editableAttr({
-              collection: 'block_richtext',
-              item: block.id,
-              fields: 'translations',
-              mode: 'modal',
-            })
-          "
-        >
+      <div
+        v-for="block in aboutBlocks"
+        :key="block.id"
+        :data-directus="
+          editableAttr({
+            collection: 'block_richtext',
+            item: block.id,
+            fields: 'translations',
+            mode: 'modal',
+          })
+        "
+      >
+        <h2>
           {{ block.item.translations[0].title }}
         </h2>
-        <div
-          class="about-block"
-          v-html="block.item.translations[0].content"
-          :data-directus="
-            editableAttr({
-              collection: 'block_richtext',
-              item: block.id,
-              fields: 'translations',
-              mode: 'modal',
-            })
-          "
-        />
+        <div class="about-block" v-html="block.item.translations[0].content" />
       </div>
     </div>
 

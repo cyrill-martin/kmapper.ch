@@ -1,12 +1,39 @@
 <script setup>
 import { NCard, NFlex } from "naive-ui";
-import { computed } from "vue";
 const { editableAttr, applyEditor } = useVisualEditor();
 const { isDesktop } = useScreen();
 const { assetUrl } = useDirectus();
+const { locale } = useI18n();
 const { t } = await useLabels();
 
+const seoContent = {
+  de: {
+    translations: [
+      {
+        title: "Öffentliche Web-Projekte",
+        description:
+          "kmapper erstellt kreative, interaktive Projekte für spezifische Zielgruppen",
+        keywords: "offene Daten, Datenvisualisierung, Webentwicklung",
+      },
+    ],
+  },
+  en: {
+    translations: [
+      {
+        title: "Public web projects",
+        description:
+          "kmapper creates creative, interactive projects for specific audiences",
+        keywords: "open data, data visualization, web development",
+      },
+    ],
+  },
+};
+
 const projects = reactive(useCollection("projects"));
+
+const seoObj = computed(() => {
+  return locale.value === "de" ? seoContent.de : seoContent.en;
+});
 
 const maxDivWidth = computed(() => {
   return isDesktop.value ? "90%" : "100%";
@@ -31,6 +58,8 @@ watch(
     if (content) applyEditor();
   },
 );
+
+useSeo(seoObj);
 </script>
 
 <template>

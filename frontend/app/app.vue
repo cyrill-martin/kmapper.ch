@@ -1,6 +1,7 @@
 <script setup>
 import { NConfigProvider, NFlex } from "naive-ui";
 const { isDesktop } = useScreen();
+useHead(useLocaleHead({ addSeoAttributes: true }));
 </script>
 <template>
   <n-config-provider :theme-overrides="naiveThemeOverrides">
