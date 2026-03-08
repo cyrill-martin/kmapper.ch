@@ -12,5 +12,6 @@ const { t } = await useLabels();
 .trigger {
   font-weight: 500;
   cursor: pointer;
+  font-size: 18px;
 }
 </style>

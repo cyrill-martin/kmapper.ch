@@ -18,7 +18,7 @@ const { t } = await useLabels();
 
 <style lang="css" scoped>
 .contacts {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 address {
   font-style: normal;

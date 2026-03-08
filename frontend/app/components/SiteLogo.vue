@@ -31,7 +31,7 @@ const { isDesktop } = useScreen();
   margin-top: 0.5rem;
 }
 .logo-mobile {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 .logo-k-desktop {
@@ -41,7 +41,7 @@ const { isDesktop } = useScreen();
   align-self: flex-start;
 }
 .logo-k-mobile {
-  height: 26px;
+  height: 27px;
   flex-shrink: 0;
   position: relative;
   align-self: flex-start;
