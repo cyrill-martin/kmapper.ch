@@ -1,13 +1,8 @@
 <script setup>
 import { NFlex, NIcon } from "naive-ui";
-import {
-  Mail,
-  LogoLinkedin,
-  LogoGithub,
-  PhonePortrait,
-} from "@vicons/ionicons5";
+import { Mail, LogoLinkedin, LogoGithub, Call } from "@vicons/ionicons5";
 const { editableAttr, applyEditor } = useVisualEditor();
-const { isDesktop } = useScreen();
+const { isDesktop, isMobile } = useScreen();
 const { directusLocale } = useDirectusLocale();
 const { assetUrl } = useDirectus();
 
@@ -98,7 +93,12 @@ const iconSize = 30;
         </h2>
         <div class="about-block" v-html="block.item.translations[0].content" />
       </div>
-      <n-flex class="about-block portrait" align="center" vertical>
+      <n-flex
+        class="about-block portrait"
+        :class="{ portraitCentered: isMobile }"
+        align="center"
+        vertical
+      >
         <div>
           <img
             :src="assetUrl(about.content.portrait)"
@@ -126,20 +126,20 @@ const iconSize = 30;
           "
         >
           <a
-            :href="`tel:${about.content.phone}`"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Tel"
-          >
-            <n-icon :component="PhonePortrait" :size="iconSize" :depth="1" />
-          </a>
-          <a
             :href="`mailto:${about.content.mailto}`"
             target="_blank"
             rel="noopener noreferrer"
             title="Mail"
           >
             <n-icon :component="Mail" :size="iconSize" :depth="1" />
+          </a>
+          <a
+            :href="`tel:${about.content.phone}`"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Tel"
+          >
+            <n-icon :component="Call" :size="iconSize" :depth="1" />
           </a>
           <a
             :href="about.content.signal"
@@ -180,6 +180,10 @@ const iconSize = 30;
 .portrait {
   max-width: 250px;
   margin-top: -2.5rem;
+}
+.portraitCentered {
+  margin-left: auto;
+  margin-right: auto;
 }
 .about-image {
   width: auto;

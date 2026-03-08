@@ -41,7 +41,7 @@ const { isDesktop } = useScreen();
   align-self: flex-start;
 }
 .logo-k-mobile {
-  height: 27px;
+  height: 28.5px;
   flex-shrink: 0;
   position: relative;
   align-self: flex-start;
