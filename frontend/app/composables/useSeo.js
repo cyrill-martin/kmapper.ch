@@ -13,6 +13,6 @@ export const useSeo = (seoRef) => {
     ogImage: () =>
       seoRef.value?.image
         ? assetUrl(seoRef.value.image)
-        : assetUrl("e52b123f-e30f-4882-9e67-24fed42bb390"),
+        : assetUrl("a7e3ff6b-c077-4d0b-a98d-f3f8a30567bd"),
   });
 };

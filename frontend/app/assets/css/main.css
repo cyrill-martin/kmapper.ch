@@ -64,6 +64,15 @@ body {
   background-color: var(--color-background);
 }
 
+@media (max-width: 768px) {
+  :root {
+    font-size: 16px !important;
+  }
+  body {
+    font-size: 16px !important;
+  }
+}
+
 .inner-page-desktop {
   padding: 0.5rem 0.5rem;
 }
