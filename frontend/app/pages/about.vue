@@ -48,7 +48,7 @@ watch(
 const seo = computed(() => about.content?.seo);
 useSeo(seo);
 
-const iconSize = 30;
+const iconSize = 25;
 </script>
 
 <template>
@@ -99,7 +99,7 @@ const iconSize = 30;
         align="center"
         vertical
       >
-        <div>
+        <div class="image-container">
           <img
             :src="assetUrl(about.content.portrait)"
             alt="Cyrill Martin - Portrait"
@@ -137,7 +137,7 @@ const iconSize = 30;
             :href="`tel:${about.content.phone}`"
             target="_blank"
             rel="noopener noreferrer"
-            title="Tel"
+            title="Tel."
           >
             <n-icon :component="Call" :size="iconSize" :depth="1" />
           </a>
@@ -178,19 +178,23 @@ const iconSize = 30;
   margin-bottom: 4rem;
 }
 .portrait {
-  max-width: 250px;
+  max-width: 195px;
   margin-top: -2.5rem;
 }
 .portraitCentered {
   margin-left: auto;
   margin-right: auto;
 }
+.image-container {
+  padding: 8px;
+  background: var(--gradient-6);
+}
 .about-image {
   width: auto;
   width: 100%;
   height: auto;
   mix-blend-mode: multiply;
-  filter: contrast(1.505) grayscale(1);
+  filter: contrast(1.75) grayscale(1);
 }
 
 .socials a {
