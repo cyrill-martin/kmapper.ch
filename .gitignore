@@ -18,5 +18,8 @@ frontend/dist/
 .vscode/
 .idea/
 
+# Nginx (server config, not committed)
+nginx/
+
 # OS
 .DS_Store

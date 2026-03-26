@@ -55,3 +55,9 @@ Based on this little fullstack: https://github.com/cyrill-martin/my-little-fulls
 1. Restart the stack on Prod with `docker compose -f docker-compose.prod.yml up -d`
 1. Update the preview URLs in Directus (solve THIS)
 1. Clear build cache with `docker builder prune -f`
+
+#### Copy Prod to Local
+
+1. Go to the project directory (kmapper.ch)
+1. Get database with `rsync -avz infomaniak-vps:/opt/kmapper.ch/directus/database/data.db ./directus/database/data.db`
+1. Sync uploads with `rsync -avz --delete infomaniak-vps:/opt/kmapper.ch/directus/uploads/ ./directus/uploads/`
