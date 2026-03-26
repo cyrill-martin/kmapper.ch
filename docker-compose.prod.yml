@@ -57,8 +57,6 @@ services:
       - ./kanboard/plugins:/var/www/app/plugins
     environment:
       - PLUGIN_INSTALLER=false
-      - ADMIN_DEFAULT_EMAIL=${KANBOARD_ADMIN_EMAIL}
-      - ADMIN_DEFAULT_PASSWORD=${KANBOARD_ADMIN_PASSWORD}
     logging:
       driver: "json-file"
       options:
