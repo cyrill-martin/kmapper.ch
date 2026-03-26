@@ -32,6 +32,7 @@ Based on this little fullstack: https://github.com/cyrill-martin/my-little-fulls
 
 ### Environment Variables
 
+1. `scp .env.prod infomaniak-vps:/opt/kmapper.ch/.env`
 1. SSH into the server
 1. `cd /opt/kmapper.ch`
 1. Edit .env with `nano .env`
@@ -39,6 +40,18 @@ Based on this little fullstack: https://github.com/cyrill-martin/my-little-fulls
    - Enter
    - Ctrl + x
 1. Restart affected container(s)
+
+### Nginx
+
+1. Copy the config file from the repo to the server home directory with: `scp nginx/kmapper.ch.conf infomaniak-vps:~/kmapper.ch.conf`
+1. SSH into the server
+1. Move the file into place with: `sudo mv ~/kmapper.ch.conf /etc/nginx/sites-available/kmapper.ch`
+
+In case you added the projects.kmapper.ch service:
+
+1. SSH into the server
+1. `sudo certbot --expand -d kmapper.ch -d www.kmapper.ch -d cms.kmapper.ch -d projects.kmapper.ch`
+1. `sudo nginx -t && sudo systemctl reload nginx`
 
 ### Database
 
