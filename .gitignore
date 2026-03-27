@@ -21,5 +21,8 @@ frontend/dist/
 # Nginx (server config, not committed)
 nginx/
 
+# Kanboard CSS
+kanboard/ 
+
 # OS
 .DS_Store
