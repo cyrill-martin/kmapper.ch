@@ -55,6 +55,7 @@ services:
     volumes:
       - ./kanboard/data:/var/www/app/data
       - ./kanboard/plugins:/var/www/app/plugins
+      - ./kanboard/favicon.png:/var/www/app/assets/img/favicon.png
     environment:
       - PLUGIN_INSTALLER=false
       - APPLICATION_URL=https://projects.kmapper.ch
