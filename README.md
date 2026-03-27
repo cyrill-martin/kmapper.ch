@@ -26,20 +26,13 @@ Based on this little fullstack: https://github.com/cyrill-martin/my-little-fulls
 
 1. SSH into the server
 1. `cd /opt/kmapper.ch`
-1. Pull lates code with `git pull`
+1. Pull latest code with `git pull`
 1. Rebuild and restart the directus container with `docker compose -f docker-compose.prod.yml up -d --build directus`
 1. Clear build cache with `docker builder prune -f`
 
 ### Environment Variables
 
-1. `scp .env.prod infomaniak-vps:/opt/kmapper.ch/.env`
-1. SSH into the server
-1. `cd /opt/kmapper.ch`
-1. Edit .env with `nano .env`
-   - Ctrl + o
-   - Enter
-   - Ctrl + x
-1. Restart affected container(s)
+1. From the project root: `scp .env.prod infomaniak-vps:/opt/kmapper.ch/.env`
 
 ### Nginx
 
@@ -71,6 +64,12 @@ In case you added the projects.kmapper.ch service:
 
 #### Copy Prod to Local
 
-1. Go to the project directory (kmapper.ch)
+1. Go to the project directory
 1. Get database with `rsync -avz infomaniak-vps:/opt/kmapper.ch/directus/database/data.db ./directus/database/data.db`
 1. Sync uploads with `rsync -avz --delete infomaniak-vps:/opt/kmapper.ch/directus/uploads/ ./directus/uploads/`
+
+### Backup Kanboard
+
+1. From the project root (kmapper.ch): `rsync -avz infomaniak-vps:/opt/kmapper.ch/kanboard/data/db.sqlite ./kanboard/db.sqlite`
+
+The custom CSS is also backed up separatly in `/kanbaord`.
