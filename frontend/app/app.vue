@@ -1,7 +1,10 @@
 <script setup>
 import { NConfigProvider, NFlex } from "naive-ui";
 const { isDesktop } = useScreen();
-useHead(useLocaleHead({ addSeoAttributes: true }));
+useHead({
+  ...useLocaleHead({ addSeoAttributes: true }),
+  link: [{ rel: "llms", href: "/llms.txt", type: "text/plain" }],
+});
 </script>
 <template>
   <n-config-provider :theme-overrides="naiveThemeOverrides">

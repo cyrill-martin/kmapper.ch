@@ -67,6 +67,7 @@ In case you added the projects.kmapper.ch service:
 1. Go to the project directory
 1. Get database with `rsync -avz infomaniak-vps:/opt/kmapper.ch/directus/database/data.db ./directus/database/data.db`
 1. Sync uploads with `rsync -avz --delete infomaniak-vps:/opt/kmapper.ch/directus/uploads/ ./directus/uploads/`
+1. Restart Directus with `docker compose restart directus`
 
 ### Backup Kanboard
 
