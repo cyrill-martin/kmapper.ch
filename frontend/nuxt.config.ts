@@ -17,7 +17,7 @@ export default defineNuxtConfig({
         name: "English",
       },
     ],
-    baseUrl: "https://kmapper.ch",
+    baseUrl: process.env.NUXT_PUBLIC_BASE_URL,
     defaultLocale: "de",
     strategy: "prefix",
     detectBrowserLanguage: {
@@ -85,8 +85,7 @@ export default defineNuxtConfig({
       "/**": {
         headers: {
           "X-Frame-Options": "ALLOWALL",
-          "Content-Security-Policy":
-            "frame-ancestors 'self' http://localhost:8055 https://cms.kmapper.ch",
+          "Content-Security-Policy": `frame-ancestors 'self' http://localhost:8055 ${process.env.NUXT_PUBLIC_DIRECTUS_URL}`,
         },
       },
     },

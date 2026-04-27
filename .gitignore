@@ -5,7 +5,7 @@
 .env.*.local
 
 # Directus
-directus/database/
+directus/database/*.db
 directus/uploads/
 
 # Nuxt

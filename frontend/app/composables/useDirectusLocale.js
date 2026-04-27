@@ -1,4 +1,3 @@
-// composables/useLocale.js
 export const useDirectusLocale = () => {
   const { locale } = useI18n();
 
