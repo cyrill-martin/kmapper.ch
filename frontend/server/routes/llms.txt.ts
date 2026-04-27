@@ -47,12 +47,25 @@ export default defineEventHandler(async (event) => {
   const lines: string[] = [
     `# kmapper.ch`,
     ``,
-    `kmapper.ch is the site of Cyrill Martin's company kmapper GmbH — Cyrill is a Technical Consultant offering Business Analysis, Requirements Engineering, and Development.`,
+    `kmapper.ch is the website of kmapper GmbH, a small data consultancy in Basel, Switzerland, founded in 2021 by Cyrill Martin. The company offers Business Analysis, Requirements Engineering, and Development for complete projects or as specialized support for larger teams.`,
+    ``,
+    `## About kmapper`,
+    ``,
+    `kmapper specializes in data curation, organization, and publication. The company works with Swiss SMEs, government organizations, and enterprises, creating custom web applications, data visualizations, and documentation solutions.`,
+    ``,
+    `Tech stack: Directus CMS, Nuxt.js frontend, hosted on Swiss infrastructure (Infomaniak VPS).`,
     ``,
     `## Pages`,
     ``,
-    `- [Home](${baseUrl}/en/home): ${home.translations?.[0]?.content ?? ""}`,
-    `- [About](${baseUrl}/en/about): ${about.translations?.[0]?.title ?? ""}`,
+    `- [Home](${baseUrl}/en/home): Business Analysis, Requirements Engineering, and Development for complete projects or as specialized support`,
+    `- [About](${baseUrl}/en/about): Company information, client list, and founder background`,
+    `- [Curation](${baseUrl}/en/curation): Data review, evaluation, and selection services`,
+    `- [Organization](${baseUrl}/en/organization): Requirements analysis and data structuring`,
+    `- [Publication](${baseUrl}/en/publication): Web solutions, visualizations, and documentation`,
+    `- [Projects](${baseUrl}/en/projects): Portfolio of public projects`,
+    ``,
+    `## Notable Projects`,
+    ``,
   ];
 
   for (const service of services) {
@@ -63,8 +76,6 @@ export default defineEventHandler(async (event) => {
       );
     }
   }
-
-  lines.push(``, `## [Projects](${baseUrl}/en/projects)`, ``);
 
   for (const project of projects) {
     const t = project.translations?.[0];
