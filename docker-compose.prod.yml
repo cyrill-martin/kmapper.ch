@@ -33,7 +33,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile.prod
       args:
-      NUXT_PUBLIC_DIRECTUS_URL: ${NUXT_PUBLIC_DIRECTUS_URL}
+        NUXT_PUBLIC_DIRECTUS_URL: ${NUXT_PUBLIC_DIRECTUS_URL}
     ports:
       - "127.0.0.1:3000:3000"
     environment:
