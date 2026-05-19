@@ -39,6 +39,7 @@ services:
     environment:
       NUXT_DIRECTUS_URL: http://directus:8055
       NUXT_PUBLIC_DIRECTUS_URL: ${NUXT_PUBLIC_DIRECTUS_URL}
+      NUXT_PUBLIC_BASE_URL: ${NUXT_PUBLIC_BASE_URL}
     depends_on:
       - directus
     restart: unless-stopped

@@ -17,7 +17,7 @@ export default defineNuxtConfig({
         name: "English",
       },
     ],
-    baseUrl: process.env.NUXT_PUBLIC_BASE_URL,
+    baseUrl: process.env.NUXT_PUBLIC_BASE_URL || "http://localhost:3000",
     defaultLocale: "de",
     strategy: "prefix",
     detectBrowserLanguage: {
