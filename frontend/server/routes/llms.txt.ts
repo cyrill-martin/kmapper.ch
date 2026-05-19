@@ -15,7 +15,9 @@ export default defineEventHandler(async (event) => {
     ),
   ]);
 
-  const baseUrl = process.env.NUXT_PUBLIC_BASE_URL ?? "https://kmapper.ch";
+  // const baseUrl = process.env.NUXT_PUBLIC_BASE_URL ?? "https://kmapper.ch";
+
+  const baseUrl = config.public.baseUrl;
 
   const lines: string[] = [
     `# kmapper.ch`,

@@ -68,6 +68,7 @@ export default defineNuxtConfig({
     public: {
       directusUrl:
         process.env.NUXT_PUBLIC_DIRECTUS_URL || "http://localhost:8055",
+      baseUrl: process.env.NUXT_PUBLIC_BASE_URL || "http://localhost:3000",
     },
   },
   build: {

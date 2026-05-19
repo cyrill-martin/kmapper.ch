@@ -5,7 +5,6 @@ export const useSeo = (seoRef) => {
 
   useSeoMeta({
     author: author,
-    ogAuthor: author,
     title: () => `${seoRef.value?.translations?.[0]?.title} - kmapper`,
     ogTitle: () => `${seoRef.value?.translations?.[0]?.title} - kmapper`,
     description: () => seoRef.value?.translations?.[0]?.description,

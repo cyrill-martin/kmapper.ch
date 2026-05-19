@@ -18,9 +18,6 @@ frontend/dist/
 .vscode/
 .idea/
 
-# Nginx (server config, not committed)
-nginx/
-
 # Kanboard CSS
 kanboard/ 
 
