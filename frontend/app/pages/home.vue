@@ -8,8 +8,6 @@ const home = reactive(useContent("home"));
 
 onMounted(() => {
   if (home.content) applyEditor();
-
-  if (home.content) console.log(home.content);
 });
 
 watch(
