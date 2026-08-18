@@ -1,0 +1,27 @@
+# Content for pages/organization.vue (via components/ServicePage.vue)
+title:
+  de: "Organisation"
+  en: "Organization"
+imageAlt:
+  de: "Ein ordentlich aufgeräumtes Büroregal, ein geschlossener Aktenschrank und ein aufgeräumter Bürotisch."
+  en: "A neatly organized office shelf, a closed filing cabinet, and a tidy office desk."
+visualKeywords:
+  de: ["Strukturieren", "Modellieren", "Transformieren", "Abbilden", "Verknüpfen"]
+  en: ["Structure", "Model", "Transform", "Map", "Connect"]
+image: /images/service-organization.png
+content:
+  de: "<p>Anforderungen werden systematisch analysiert und in Strukturen gebracht. Wo n&ouml;tig, wird modelliert, transformiert und abgebildet.</p>"
+  en: "<p>Requirements are systematically analyzed and structured. Where necessary, they are modeled, transformed, and mapped.</p>"
+# Route name to link to next (see nuxt.config.ts i18n.pages).
+nextRoute: publication
+
+seo:
+  title:
+    de: "Organisation Ihrer Daten und Informationen"
+    en: "Organization of your data and information"
+  description:
+    de: "kmapper strukturiert, modelliert und transformiert Ihre Daten und Informationen"
+    en: "kmapper structures, models, and transforms your data and information"
+  keywords:
+    de: "Datenstrukturierung, Datenmodellierung, Datentransformation"
+    en: "data structuring, data modeling, data transformation"

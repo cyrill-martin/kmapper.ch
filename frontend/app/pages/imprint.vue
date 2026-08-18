@@ -1,64 +1,31 @@
 <script setup>
-const { editableAttr, applyEditor } = useVisualEditor();
 const { isDesktop } = useScreen();
 
-const imprint = reactive(useContent("imprint"));
+const { content: imprint, pending, error } = useContent("imprint");
 
 const maxDivWidth = computed(() => {
   return isDesktop.value ? "90%" : "100%";
 });
 
-onMounted(() => {
-  if (imprint.content) applyEditor();
-});
-
-watch(
-  () => imprint.content,
-  (content) => {
-    if (content) applyEditor();
-  },
-);
-
-const seo = computed(() => imprint.content?.seo);
+const seo = computed(() => imprint.value?.seo);
 useSeo(seo);
 </script>
 
 <template>
   <div>
-    <div v-if="imprint.pending">Loading...</div>
+    <div v-if="pending">Loading...</div>
 
-    <div v-else-if="imprint.error" style="color: red">
-      Error: {{ imprint.error.message }}
+    <div v-else-if="error" style="color: red">
+      Error: {{ error.message }}
     </div>
 
     <div
-      v-else-if="imprint.content"
+      v-else-if="imprint"
       :class="isDesktop ? 'inner-page-desktop' : 'inner-page-mobile'"
       :style="{ maxWidth: maxDivWidth }"
     >
-      <h1
-        :data-directus="
-          editableAttr({
-            collection: 'imprint',
-            item: 1,
-            fields: 'translations',
-            mode: 'modal',
-          })
-        "
-      >
-        {{ imprint.content.translations[0].title }}
-      </h1>
-      <div
-        v-html="imprint.content.translations[0].content"
-        :data-directus="
-          editableAttr({
-            collection: 'imprint',
-            item: 1,
-            fields: 'translations',
-            mode: 'modal',
-          })
-        "
-      />
+      <h1>{{ imprint.title }}</h1>
+      <div v-html="imprint.content" />
     </div>
 
     <div v-else>No page found</div>

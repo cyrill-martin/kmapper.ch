@@ -1,21 +1,8 @@
 <script setup>
-const { editableAttr, applyEditor } = useVisualEditor();
-const { assetUrl } = useDirectus();
 const { isDesktop } = useScreen();
-const { t } = await useLabels();
+const { t } = useI18n();
 
-const props = defineProps(["service", "id"]);
-
-onMounted(() => {
-  if (props.service.content) applyEditor();
-});
-
-watch(
-  () => props.service.content,
-  (content) => {
-    if (content) applyEditor();
-  },
-);
+const props = defineProps(["service", "pending", "error"]);
 
 const maxImgWidth = computed(() => {
   return isDesktop.value ? "65%" : "100%";
@@ -26,100 +13,48 @@ const maxPWidth = computed(() => {
 });
 
 const nextLinkText = computed(() => {
-  return props.id === 3
-    ? t(`nav.projects`)
-    : t(`service.${props.service.content.next_route}`);
+  const nextRoute = props.service?.nextRoute;
+  return nextRoute === "projects" ? t("nav.projects") : t(`service.${nextRoute}`);
 });
 
-const seo = computed(() => props.service.content?.seo);
+const seo = computed(() => props.service?.seo);
 useSeo(seo);
 </script>
 
 <template>
   <div>
-    <div v-if="props.service.pending">Loading...</div>
+    <div v-if="props.pending">Loading...</div>
 
-    <div v-else-if="props.service.error" style="color: red">
-      Error: {{ props.service.error.message }}
+    <div v-else-if="props.error" style="color: red">
+      Error: {{ props.error.message }}
     </div>
 
     <div
-      v-else-if="props.service.content"
+      v-else-if="props.service"
       :class="isDesktop ? 'inner-page-desktop' : 'inner-page-mobile'"
     >
-      <h1
-        :data-directus="
-          editableAttr({
-            collection: 'services',
-            item: props.id,
-            fields: 'translations',
-            mode: 'modal',
-          })
-        "
-      >
-        {{ props.service.content.translations[0].title }}
-      </h1>
-      <div
-        class="service-keywords"
-        :data-directus="
-          editableAttr({
-            collection: 'services',
-            item: props.id,
-            fields: 'translations',
-            mode: 'modal',
-          })
-        "
-      >
-        <p>
-          {{
-            props.service.content.translations[0].visual_keywords.join(" · ")
-          }}
-        </p>
+      <h1>{{ props.service.title }}</h1>
+      <div class="service-keywords">
+        <p>{{ props.service.visualKeywords.join(" · ") }}</p>
       </div>
       <div>
         <p>
           <img
-            :src="assetUrl(props.service.content.service_image)"
-            :alt="props.service.content.translations[0].image_alt"
+            :src="props.service.image"
+            :alt="props.service.imageAlt"
             class="service-image"
             :style="{ maxWidth: maxImgWidth }"
-            :data-directus="
-              editableAttr({
-                collection: 'services',
-                item: props.id,
-                fields: 'service_image',
-                mode: 'modal',
-              })
-            "
           />
         </p>
       </div>
       <div
-        v-html="props.service.content.translations[0].content"
+        v-html="props.service.content"
         :style="{ maxWidth: maxPWidth }"
-        :data-directus="
-          editableAttr({
-            collection: 'services',
-            item: props.id,
-            fields: 'translations',
-            mode: 'modal',
-          })
-        "
       />
-      <div
-        class="next-route"
-        :data-directus="
-          editableAttr({
-            collection: 'services',
-            item: props.id,
-            fields: 'next_route',
-            mode: 'modal',
-          })
-        "
-      >
+      <div class="next-route">
         &#8594;
         <NuxtLinkLocale
-          :to="{ name: props.service.content.next_route }"
+          :to="{ name: props.service.nextRoute }"
           class="site-link"
         >
           {{ nextLinkText }}

@@ -1,0 +1,117 @@
+# Content for pages/projects.vue
+seo:
+  title:
+    de: "Öffentliche Web-Projekte"
+    en: "Public web projects"
+  description:
+    de: "kmapper erstellt kreative, interaktive Projekte für spezifische Zielgruppen"
+    en: "kmapper creates creative, interactive projects for specific audiences"
+  keywords:
+    de: "offene Daten, Datenvisualisierung, Webentwicklung"
+    en: "open data, data visualization, web development"
+
+# Ordered for display (was Directus's "sort" field).
+items:
+  - url: https://geschichte.kibue.ch/
+    urlText: geschichte.kibue.ch
+    image: /images/project-kibue-history.png
+    title:
+      de: "Geschichte des Kinderbüros Basel"
+      en: "History of the Kinderbüro Basel"
+    description:
+      de: "Die Geschichte des Kinderbüros Basel per Panning über Kacheln entdecken."
+      en: "Discover the history of the Basel Kinderbüro by panning across tiles."
+    notes:
+      de: "<p>Vue.js</p>\n<ul>\n<li>Konzept und Design: <a href=\"https://www.hejkarlie.ch\" target=\"_blank\" rel=\"noopener\">Karlie GmbH</a></li>\n<li>Basierend auf dem Archiv des <a href=\"https://kibue.ch\" target=\"_blank\" rel=\"noopener\">Kinderb&uuml;ros</a></li>\n</ul>\n<p>#Publikation</p>"
+      en: "<p>Vue.js</p>\n<ul>\n<li>Concept and Design: <a href=\"https://www.hejkarlie.ch\" target=\"_blank\" rel=\"noopener\">Karlie GmbH</a></li>\n<li>Based on <a href=\"http://kibue.ch\" target=\"_blank\" rel=\"noopener\">Kinderb&uuml;ro's</a> archive</li>\n</ul>\n<p>#Publication</p>"
+
+  - url: https://data.governance-advisors.ch/
+    urlText: data.governance-advisors.ch
+    image: /images/project-governance-advisors.png
+    title:
+      de: "Merkmale der SMI-Verwaltungsräte"
+      en: "Characteristics of SMI Board Directors"
+    description:
+      de: "Die dynamische Heatmap zeigt, wie sich die Zusammensetzung der SMI-Verwaltungsräte im Laufe der Zeit verändert hat."
+      en: "The dynamic heat map shows how SMI board composition has changed over time."
+    notes:
+      de: "<p>R &middot; Vue.js &middot; D3.js</p>\n<ul>\n<li>Basierend auf aggregierten Daten der <a href=\"https://governance-advisors.ch/daten/\" target=\"_blank\" rel=\"noopener\">Governance Advisors AG</a></li>\n</ul>\n<p>#Organisation #Publikation</p>"
+      en: "<p>R &middot; Vue.js &middot; D3.js</p>\n<ul>\n<li>Based on aggregated data from <a href=\"https://governance-advisors.ch/daten/\" target=\"_blank\" rel=\"noopener\">Governance Advisors AG</a></li>\n</ul>\n<p>#Organization #Publication</p>"
+
+  - url: https://pypi.org/project/kmapper-iscc-scan/
+    urlText: kmapper-iscc-scan
+    image: /images/project-iscc-scan.png
+    title:
+      de: "ISCC Inventar-Tool"
+      en: "ISCC Inventory Tool"
+    description:
+      de: "Das Tool scannt Verzeichnisse, generiert ISCCs und clustert automatisch: (1) Identische Kopien (bitgenau, egal welcher Dateiname), (2) Ähnliche Inhalte (verschiedene Dateien mit ähnlichem Inhalt landen im selben Cluster)"
+      en: "The tool scans directories, generates ISCCs, and automatically clusters: (1) Identical copies (bit-for-bit, regardless of filename), (2) Similar content (different files with similar content end up in the same cluster)"
+    notes:
+      de: "<p>Python</p>\n<ul>\n<li>Basierend auf dem <a href=\"https://iscc.io/\" target=\"_blank\" rel=\"noopener\">ISCC</a> der ISCC Foundation</li>\n</ul>\n<p>#Kuration #Organisation</p>"
+      en: "<p>Python</p>\n<ul>\n<li>Based on the ISCC Foundation's <a href=\"https://iscc.io/\" target=\"_blank\" rel=\"noopener\">ISCC</a></li>\n</ul>\n<p>#Curation #Organization</p>"
+
+  - url: https://grosserrat-bs.kmapper.ch/
+    urlText: grosserrat-bs.kmapper.ch
+    image: /images/project-grosserrat-bs.png
+    title:
+      de: "Grosser Rat Basel-Stadt"
+      en: "Grand Council of Basel-Stadt"
+    description:
+      de: "Die dynamische Visualisierung zeigt die Sitzverteilung der Mitglieder des Grossen Rates Basel-Stadt in Relation zu einem zusätzlich wählbaren Merkmal."
+      en: "The dynamic visualization shows the distribution of seats for members of the Grand Council of Basel-Stadt in relation to an additional feature."
+    notes:
+      de: "<p>Vue.js &middot; D3.js</p>\n<ul>\n<li>Basierend auf f&uuml;nf Datens&auml;tzen von <a href=\"https://data.bs.ch/pages/home/\" target=\"_blank\" rel=\"noopener\">Open Data Basel-Stadt</a></li>\n</ul>\n<p>#Kuration #Organisation #Publikation</p>"
+      en: "<p>Vue.js &middot; D3.js</p>\n<ul>\n<li>Based on five data sets from <a href=\"https://data.bs.ch/pages/home/\" target=\"_blank\" rel=\"noopener\">Open Data Basel-Stadt</a></li>\n</ul>\n<p>#Curation #Organization #Publication</p>"
+
+  - url: https://migration-bs.kmapper.com/
+    urlText: migration-bs.kmapper.com
+    image: /images/project-migration-bs.png
+    title:
+      de: "Basel-Stadt: Zu- und Wegzüge seit 2006"
+      en: "Basel-City: Migration since 2006"
+    description:
+      de: "Visualisierung von Zu- und Wegzügen zwischen Basel und verschiedenen Teilen der Welt."
+      en: "Visualization of immigrations and emigrations between Basel and different parts of the world."
+    notes:
+      de: "<p>R &middot; Vue.js &middot; D3.js&nbsp;</p>\n<ul>\n<li>Basierend auf Daten von <a href=\"https://data.bs.ch/pages/home/\" target=\"_blank\" rel=\"noopener\">Open Data Basel-Stadt</a></li>\n</ul>\n<p>#Organisation #Publikation</p>"
+      en: "<p>R &middot; Vue.js &middot; D3.js&nbsp;</p>\n<ul>\n<li>Based on data from <a href=\"https://data.bs.ch/pages/home/\" target=\"_blank\" rel=\"noopener\">Open Data Basel-Stadt</a></li>\n</ul>\n<p>#Organization #Publication</p>"
+
+  - url: https://money-and-citations.kmapper.com/
+    urlText: money-and-citations.kmapper.com
+    image: /images/project-money-and-citations.png
+    title:
+      de: "Does Money Buy Citations?"
+      en: "Does Money Buy Citations?"
+    description:
+      de: "Ein Projekt, das untersucht, ob stärker finanzierte biomedizinische Forschung auch häufiger zitiert wird."
+      en: "A project investigating whether more heavily funded biomedical research is also cited more frequently."
+    notes:
+      de: "<p>&nbsp;R &middot; Vue.js &middot; D3.js&nbsp;</p>\n<ul>\n<li>Basierend auf Daten von <a href=\"https://data.snf.ch/datasets\" target=\"_blank\" rel=\"noopener\">SNF</a> und <a href=\"https://www.crossref.org/\" target=\"_blank\" rel=\"noopener\">Crossref</a></li>\n<li>CAS Statistische Datenanalyse &amp; Datenvisualisierung</li>\n</ul>\n<p>#Kuration #Organisation #Publikation</p>"
+      en: "<p>&nbsp;R &middot; Vue.js &middot; D3.js&nbsp;</p>\n<ul>\n<li>Based on data from <a href=\"https://data.snf.ch/datasets\" target=\"_blank\" rel=\"noopener\">SNF</a> and <a href=\"https://www.crossref.org/\" target=\"_blank\" rel=\"noopener\">Crossref</a></li>\n<li>CAS Statistical Data Analysis &amp; Data Visualization</li>\n</ul>\n<p>#Curation #Organization #Publication</p>"
+
+  - url: https://parlament.kmapper.com/
+    urlText: parlament.kmapper.com
+    image: /images/project-parlament.png
+    title:
+      de: "Unterschiedliche Perspektiven auf das Schweizer Parlament"
+      en: "Different Perspectives on the Swiss Parliament"
+    description:
+      de: "Die dynamische Visualisierung zeigt die Sitzverteilung der Mitglieder des Schweizer Parlaments in Relation zu einem zusätzlich wählbaren Merkmal."
+      en: "The dynamic visualization shows the distribution of seats for members of the Swiss parliament in relation to an additional feature."
+    notes:
+      de: "<p>Python &middot; Vue.js &middot; D3.js&nbsp;</p>\n<ul>\n<li>Basierend auf offenen Daten von <a href=\"https://www.parlament.ch/\" target=\"_blank\" rel=\"noopener\">parlament.ch</a></li>\n<li>Showcase auf <a href=\"https://opendata.swiss/de/showcase/visualisierung-des-schweizer-national-und-standerats\" target=\"_blank\" rel=\"noopener\">opendata.swiss</a></li>\n</ul>\n<p>#Organisation #Publikation</p>"
+      en: "<p>Python &middot; Vue.js &middot; D3.js</p>\n<ul>\n<li>Based on open data from <a href=\"https://www.parlament.ch/\" target=\"_blank\" rel=\"noopener\">parlament.ch</a></li>\n<li>Showcase on <a href=\"https://opendata.swiss/en/showcase/visualisierung-des-schweizer-national-und-standerats\" target=\"_blank\" rel=\"noopener\">opendata.swiss</a></li>\n</ul>\n<p>#Organization #Publication</p>"
+
+  - url: https://kmapper.org
+    urlText: kmapper.org
+    image: /images/project-kmapper-org.png
+    title:
+      de: "Verbindungen zwischen Open-Access-Forschung visualisieren"
+      en: "Visualizing connections between open access research"
+    description:
+      de: "Ein Tool, das basierend auf der OpenAlex-API und Daten zu Sustainable Development Goals und Forschungsfelder, Verbindungen zwischen Open-Access-Forschung visualisiert."
+      en: "A tool that visualizes connections between open access research based on the OpenAlex API and data on Sustainable Development Goals and research fields."
+    notes:
+      de: "<p>Vue.js &middot; D3.js</p>\n<ul>\n<li>Basierend auf den Daten von <a href=\"https://openalex.org/\" target=\"_blank\" rel=\"noopener\">OpenAlex</a></li>\n<li>Ursprungsprojekt der kmapper GmbH</li>\n</ul>\n<p>#Kuration #Organisation #Publikation</p>"
+      en: "<p>Vue.js &middot; D3.js</p>\n<ul>\n<li>Based on data from <a href=\"https://openalex.org/\" target=\"_blank\" rel=\"noopener\">OpenAlex</a></li>\n<li>Origin project of kmapper GmbH</li>\n</ul>\n<p>#Curation #Organization #Publication</p>"

@@ -1,7 +1,7 @@
 <script setup>
-const curation = reactive(useContent("services", 1));
+const { content: curation, pending, error } = useContent("curation");
 </script>
 
 <template>
-  <ServicePage v-if="curation" :service="curation" :id="1" />
+  <ServicePage :service="curation" :pending="pending" :error="error" />
 </template>

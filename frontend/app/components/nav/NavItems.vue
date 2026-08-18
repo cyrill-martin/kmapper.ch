@@ -2,7 +2,7 @@
 const { closeMobileNav } = useMobileNav();
 const mainItems = ["curation", "organization", "publication"];
 const secondaryItems = ["projects", "about"];
-const { t } = await useLabels();
+const { t } = useI18n();
 </script>
 
 <template>

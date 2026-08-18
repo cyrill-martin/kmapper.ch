@@ -1,21 +1,10 @@
-import { createDirectus, rest, readItems } from "@directus/sdk";
+import { parse } from "yaml";
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event);
-  const client = createDirectus(config.directusUrl).with(rest());
 
-  const [projects] = await Promise.all([
-    client.request(
-      readItems("projects", {
-        fields: ["translations.title", "translations.description"],
-        deep: {
-          translations: { _filter: { languages_code: { _eq: "en-US" } } },
-        },
-      }),
-    ),
-  ]);
-
-  // const baseUrl = process.env.NUXT_PUBLIC_BASE_URL ?? "https://kmapper.ch";
+  const raw = await useStorage("assets:content").getItemRaw("projects.yaml");
+  const projects = raw ? (parse(raw.toString())?.items ?? []) : [];
 
   const baseUrl = config.public.baseUrl;
 
@@ -35,7 +24,7 @@ export default defineEventHandler(async (event) => {
     ``,
     `Notable expertise: Swiss political data, D3.js visualizations, open access research networks, and data authenticity solutions using emerging standards like ISCC.`,
     ``,
-    `Tech stack: Directus CMS, Nuxt.js frontend, hosted on Swiss infrastructure (Infomaniak VPS).`,
+    `Tech stack: Nuxt.js frontend, content as YAML, hosted on Swiss infrastructure (Infomaniak VPS).`,
     ``,
     `## Pages`,
     ``,
@@ -51,10 +40,7 @@ export default defineEventHandler(async (event) => {
   ];
 
   for (const project of projects) {
-    const t = project.translations?.[0];
-    if (t) {
-      lines.push(`- ${t.title}: ${t.description ?? ""}`);
-    }
+    lines.push(`- ${project.title?.en}: ${project.description?.en ?? ""}`);
   }
 
   const finalLines: string[] = lines.concat([

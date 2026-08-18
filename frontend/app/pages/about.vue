@@ -1,51 +1,15 @@
 <script setup>
 import { NFlex, NIcon } from "naive-ui";
 import { Mail, LogoLinkedin, LogoGithub, Call } from "@vicons/ionicons5";
-const { editableAttr, applyEditor } = useVisualEditor();
 const { isDesktop, isMobile } = useScreen();
-const { directusLocale } = useDirectusLocale();
-const { assetUrl } = useDirectus();
 
-const about = reactive(
-  useContent("about", null, [
-    "blocks.id",
-    "blocks.collection",
-    "blocks.item.*",
-    "blocks.item.translations.*",
-  ]),
-);
-
-const aboutBlocks = computed(() => {
-  return (
-    about.content?.blocks?.map((block) => ({
-      ...block,
-      item: {
-        ...block.item,
-        translations:
-          block.item?.translations?.filter(
-            (t) => t.languages_code === directusLocale.value,
-          ) ?? [],
-      },
-    })) ?? []
-  );
-});
+const { content: about, pending, error } = useContent("about");
 
 const maxDivWidth = computed(() => {
   return isDesktop.value ? "80%" : "100%";
 });
 
-onMounted(() => {
-  if (about.content) applyEditor();
-});
-
-watch(
-  () => about.content,
-  (content) => {
-    if (content) applyEditor();
-  },
-);
-
-const seo = computed(() => about.content?.seo);
+const seo = computed(() => about.value?.seo);
 useSeo(seo);
 
 const iconSize = 25;
@@ -53,45 +17,21 @@ const iconSize = 25;
 
 <template>
   <div>
-    <div v-if="about.pending">Loading...</div>
+    <div v-if="pending">Loading...</div>
 
-    <div v-else-if="about.error" style="color: red">
-      Error: {{ about.error.message }}
+    <div v-else-if="error" style="color: red">
+      Error: {{ error.message }}
     </div>
 
     <div
-      v-else-if="about.content"
+      v-else-if="about"
       :class="isDesktop ? 'inner-page-desktop' : 'inner-page-mobile'"
       :style="{ maxWidth: maxDivWidth }"
     >
-      <h1
-        :data-directus="
-          editableAttr({
-            collection: 'about',
-            item: 1,
-            fields: 'translations',
-            mode: 'modal',
-          })
-        "
-      >
-        {{ about.content.translations[0].title }}
-      </h1>
-      <div
-        v-for="block in aboutBlocks"
-        :key="block.id"
-        :data-directus="
-          editableAttr({
-            collection: 'block_richtext',
-            item: block.id,
-            fields: 'translations',
-            mode: 'modal',
-          })
-        "
-      >
-        <h2>
-          {{ block.item.translations[0].title }}
-        </h2>
-        <div class="about-block" v-html="block.item.translations[0].content" />
+      <h1>{{ about.title }}</h1>
+      <div v-for="(block, index) in about.blocks" :key="index">
+        <h2>{{ block.title }}</h2>
+        <div class="about-block" v-html="block.content" />
       </div>
       <n-flex
         class="about-block portrait"
@@ -101,32 +41,14 @@ const iconSize = 25;
       >
         <div class="image-container">
           <img
-            :src="assetUrl(about.content.portrait)"
+            :src="about.portrait"
             alt="Cyrill Martin - Portrait"
             class="about-image"
-            :data-directus="
-              editableAttr({
-                collection: 'about',
-                item: 1,
-                fields: 'image',
-                mode: 'modal',
-              })
-            "
           />
         </div>
-        <div
-          class="socials"
-          :data-directus="
-            editableAttr({
-              collection: 'about',
-              item: 1,
-              fields: '',
-              mode: 'modal',
-            })
-          "
-        >
+        <div class="socials">
           <a
-            :href="`mailto:${about.content.mailto}`"
+            :href="`mailto:${about.contact.mailto}`"
             target="_blank"
             rel="noopener noreferrer"
             title="Mail"
@@ -134,7 +56,7 @@ const iconSize = 25;
             <n-icon :component="Mail" :size="iconSize" :depth="1" />
           </a>
           <a
-            :href="`tel:${about.content.phone}`"
+            :href="`tel:${about.contact.phone}`"
             target="_blank"
             rel="noopener noreferrer"
             title="Tel."
@@ -142,7 +64,7 @@ const iconSize = 25;
             <n-icon :component="Call" :size="iconSize" :depth="1" />
           </a>
           <a
-            :href="about.content.signal"
+            :href="about.contact.signal"
             target="_blank"
             rel="noopener noreferrer"
             title="Signal"
@@ -150,7 +72,7 @@ const iconSize = 25;
             <n-icon :size="iconSize" :depth="1"><SignalIcon /></n-icon>
           </a>
           <a
-            :href="about.content.linkedin"
+            :href="about.contact.linkedin"
             target="_blank"
             rel="noopener noreferrer"
             title="LinkedIn"
@@ -158,7 +80,7 @@ const iconSize = 25;
             <n-icon :component="LogoLinkedin" :size="iconSize" :depth="1" />
           </a>
           <a
-            :href="about.content.github"
+            :href="about.contact.github"
             target="_blank"
             rel="noopener noreferrer"
             title="GitHub"

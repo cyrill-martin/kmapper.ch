@@ -1,27 +1,29 @@
-// composables/useSeo.js
+// SEO meta for pages fed by useContent (flat { title, description, keywords, image } shape).
+const DEFAULT_IMAGE = "/images/og-default.png";
+
 export const useSeo = (seoRef) => {
-  const { assetUrl } = useDirectus();
   const author = "Cyrill Martin - kmapper GmbH";
+  const config = useRuntimeConfig();
+  const route = useRoute();
+
+  const pageUrl = computed(() => `${config.public.baseUrl}${route.fullPath}`);
+  const imageUrl = computed(
+    () => `${config.public.baseUrl}${seoRef.value?.image || DEFAULT_IMAGE}`,
+  );
 
   useSeoMeta({
-    author: author,
-    title: () => `${seoRef.value?.translations?.[0]?.title} - kmapper`,
-    ogTitle: () => `${seoRef.value?.translations?.[0]?.title} - kmapper`,
-    description: () => seoRef.value?.translations?.[0]?.description,
-    ogDescription: () => seoRef.value?.translations?.[0]?.description,
-    keywords: () => seoRef.value?.translations?.[0]?.keywords,
+    author,
+    title: () => `${seoRef.value?.title} - kmapper`,
+    ogTitle: () => `${seoRef.value?.title} - kmapper`,
+    description: () => seoRef.value?.description,
+    ogDescription: () => seoRef.value?.description,
+    keywords: () => seoRef.value?.keywords,
     ogType: "website",
-    ogUrl: "https://kmapper.ch",
-    ogImage: () =>
-      seoRef.value?.image
-        ? assetUrl(seoRef.value.image)
-        : assetUrl("a7e3ff6b-c077-4d0b-a98d-f3f8a30567bd"),
+    ogUrl: () => pageUrl.value,
+    ogImage: () => imageUrl.value,
     twitterCard: "summary_large_image",
-    twitterTitle: () => `${seoRef.value?.translations?.[0]?.title} - kmapper`,
-    twitterDescription: () => seoRef.value?.translations?.[0]?.description,
-    twitterImage: () =>
-      seoRef.value?.image
-        ? assetUrl(seoRef.value.image)
-        : assetUrl("a7e3ff6b-c077-4d0b-a98d-f3f8a30567bd"),
+    twitterTitle: () => `${seoRef.value?.title} - kmapper`,
+    twitterDescription: () => seoRef.value?.description,
+    twitterImage: () => imageUrl.value,
   });
 };

@@ -15,7 +15,6 @@ useHead(
 </script>
 <template>
   <n-config-provider :theme-overrides="naiveThemeOverrides">
-    <PreviewBanner />
     <NavMobile v-show="!isDesktop" />
     <n-flex v-if="isDesktop" class="desktop-container">
       <LanguageSwitch />

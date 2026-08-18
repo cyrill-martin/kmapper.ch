@@ -1,36 +1,21 @@
 <script setup>
-const { editableAttr, applyEditor } = useVisualEditor();
 const { isDesktop } = useScreen();
-const { locale } = useI18n();
-const { t } = await useLabels();
+const { locale, t } = useI18n();
 
-const home = reactive(useContent("home"));
+const { content: home, pending, error } = useContent("home");
 
-onMounted(() => {
-  if (home.content) applyEditor();
-});
-
-watch(
-  () => home.content,
-  (content) => {
-    if (content) applyEditor();
-  },
-);
-
-const seo = computed(() => home.content?.seo);
+const seo = computed(() => home.value?.seo);
 useSeo(seo);
 </script>
 
 <template>
   <div :class="isDesktop ? 'home-container-desktop' : 'home-container-mobile'">
-    <div v-if="home.pending">Loading...</div>
+    <div v-if="pending">Loading...</div>
 
-    <div v-else-if="home.error" style="color: red">
-      Error: {{ home.error.message }}
-    </div>
+    <div v-else-if="error" style="color: red">Error: {{ error.message }}</div>
 
     <div
-      v-else-if="home.content"
+      v-else-if="home"
       :class="isDesktop ? 'home-content-desktop' : 'home-content-mobile'"
       class="home-content-background"
     >
@@ -59,18 +44,7 @@ useSeo(seo);
             {{ t(`home.claimEnd`) }}
           </p>
         </div>
-        <div
-          :data-directus="
-            editableAttr({
-              collection: 'home',
-              item: 1,
-              fields: 'translations',
-              mode: 'modal',
-            })
-          "
-          class="hero-content"
-          v-html="home.content.translations[0].content"
-        />
+        <div class="hero-content" v-html="home.hero.content" />
       </div>
     </div>
 

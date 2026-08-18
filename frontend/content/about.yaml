@@ -1,0 +1,42 @@
+# Content for pages/about.vue
+title:
+  de: "Über"
+  en: "About"
+portrait: /images/about-portrait.jpg
+contact:
+  mailto: cyrill.martin@kmapper.ch
+  phone: "+41797456205"
+  signal: "https://signal.me/#p/+41797456205"
+  linkedin: https://www.linkedin.com/in/cyrill-martin/
+  github: https://github.com/cyrill-martin/
+
+blocks:
+  - title:
+      de: "Kund:innen"
+      en: "Clients"
+    content:
+      de: "<p>Unternehmen und Organisationen, mit denen kmapper zusammengearbeitet hat:</p>\n<h3>Direktmandate</h3>\n<ul>\n<li>Bundesamt f&uuml;r Gesundheit BAG</li>\n<li>Governance Advisors AG</li>\n<li>Mosanna Therapeutics AG</li>\n<li>Karger Publishers</li>\n</ul>\n<h3>Contracting/Subcontracting</h3>\n<ul>\n<li>Nexeco AG\n<ul>\n<li>Helvetia&nbsp;</li>\n<li>Swiss Banking</li>\n</ul>\n</li>\n<li>Karlie GmbH\n<ul>\n<li>Kinderb&uuml;ro Basel</li>\n</ul>\n</li>\n</ul>"
+      en: "<p>Companies and organizations that kmapper has collaborated with:</p>\n<h3>Direct Mandates</h3>\n<ul>\n<li>Federal Office of Public Health FOPH</li>\n<li>Governance Advisors AG</li>\n<li>Mosanna Therapeutics AG</li>\n<li>Karger Publishers</li>\n</ul>\n<h3>Contracting/Subcontracting</h3>\n<ul>\n<li>Nexeco AG\n<ul>\n<li>Helvetia&nbsp;</li>\n<li>Swiss Banking</li>\n</ul>\n</li>\n<li>Karlie GmbH\n<ul>\n<li>Kinderb&uuml;ro Basel</li>\n</ul>\n</li>\n</ul>"
+  - title:
+      de: "kmapper GmbH"
+      en: "kmapper GmbH"
+    content:
+      de: "<p>kmapper ist eine winzige Firma in Basel, die Unternehmen und Organisationen seit 2021 bei der Kuration, Organisation und Publikation ihrer Daten und Informationen unterst&uuml;tzt.</p>\n<p>kmapper arbeitet auf zwei Arten:</p>\n<p><strong>Komplette Projekte<br></strong>Vollst&auml;ndige &Uuml;bernahme von der Konzeption bis zum fertigen Ergebnis f&uuml;r kreative, interaktive Projekte f&uuml;r spezifische Zielgruppen. Datenvisualisierungen, Web-Anwendungen, spezialisierte Tools oder Dokumentationen.</p>\n<p><strong>Gezielte Unterst&uuml;tzung<br></strong>Fokussierte Expertise f&uuml;r gr&ouml;ssere Teams und Enterprise-Projekte in Business-Analyse, Requirements Engineering, Entwicklung oder spezialisierter Datenarbeit.</p>\n<p>Das Unternehmen geht zur&uuml;ck auf das offene Projekt&nbsp;<a href=\"https://kmapper.org\" target=\"_blank\" rel=\"noopener\">kmapper.org</a>, ein Tool zur Visualisierung von Open-Access-Forschungsartikeln in einem interdisziplin&auml;ren Kontext.</p>"
+      en: "<p>kmapper is a tiny company in Basel that supports businesses and organizations with the curation, organization, and publication of their data and information since 2021.</p>\n<p>kmapper operates in two ways:</p>\n<p><strong>Complete Projects</strong><br>Full responsibility from conception to finished result for creative, interactive projects targeting specific audiences. Data visualizations, web applications, specialized tools or documentation.</p>\n<p><strong>Specialized Support</strong><br>Focused expertise for larger teams and enterprise projects in business analysis, requirements engineering, development or specialized data work.</p>\n<p>The company traces back to the open project <a href=\"https://kmapper.org\" target=\"_blank\" rel=\"noopener\">kmapper.org</a>, a tool for visualizing open access research articles in an interdisciplinary context.</p>"
+  - title:
+      de: "Cyrill Martin"
+      en: "Cyrill Martin"
+    content:
+      de: "<p>Ich bin kreativer Data Consultant, erfahren in der Strukturierung von Daten und Informationen f&uuml;r Mensch und Maschine.</p>"
+      en: "<p>I am a creative data consultant, experienced in structuring data and information for humans and machines.</p>"
+
+seo:
+  title:
+    de: "Über die kmapper GmbH"
+    en: "About kmapper GmbH"
+  description:
+    de: "kmapper unterstützt Unternehmen und Organisationen seit 2021"
+    en: "kmapper supports companies and organizations since 2021"
+  keywords:
+    de: "Kunden, Geschichte, Team"
+    en: "Clients, History, Team"

@@ -1,5 +1,5 @@
 <script setup>
-const { t } = await useLabels();
+const { t } = useI18n();
 </script>
 <template>
   <section class="contacts">

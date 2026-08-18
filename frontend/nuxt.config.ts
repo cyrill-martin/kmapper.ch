@@ -1,3 +1,5 @@
+import { fileURLToPath } from "node:url";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
@@ -5,16 +7,19 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
   modules: ["@nuxtjs/i18n"],
   i18n: {
+    langDir: "locales",
     locales: [
       {
         code: "de",
         language: "de-DE",
         name: "Deutsch",
+        file: "de.json",
       },
       {
         code: "en",
         language: "en-US",
         name: "English",
+        file: "en.json",
       },
     ],
     baseUrl: process.env.NUXT_PUBLIC_BASE_URL || "http://localhost:3000",
@@ -62,12 +67,7 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    // The env variables are set in the docker-compose.yml
-    // The localhost URLs are fallbacks in case the environment variables are not set
-    directusUrl: process.env.NUXT_DIRECTUS_URL || "http://localhost:8055",
     public: {
-      directusUrl:
-        process.env.NUXT_PUBLIC_DIRECTUS_URL || "http://localhost:8055",
       baseUrl: process.env.NUXT_PUBLIC_BASE_URL || "http://localhost:3000",
     },
   },
@@ -80,15 +80,12 @@ export default defineNuxtConfig({
       "@juggle/resize-observer",
     ],
   },
-  // Allow x-frame options for Directus preview
   nitro: {
-    routeRules: {
-      "/**": {
-        headers: {
-          "X-Frame-Options": "ALLOWALL",
-          "Content-Security-Policy": `frame-ancestors 'self' http://localhost:8055 ${process.env.NUXT_PUBLIC_DIRECTUS_URL}`,
-        },
-      },
-    },
+    // Ships content/*.yaml with the server bundle so pages can read
+    // them at runtime in both dev and the built .output server.
+    // Absolute path so it resolves the same regardless of Nitro's own srcDir.
+    serverAssets: [
+      { baseName: "content", dir: fileURLToPath(new URL("./content", import.meta.url)) },
+    ],
   },
 });

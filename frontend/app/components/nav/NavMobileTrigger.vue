@@ -1,6 +1,6 @@
 <script setup>
 const { openMobileNav } = useMobileNav();
-const { t } = await useLabels();
+const { t } = useI18n();
 </script>
 <template>
   <div class="trigger" @click="openMobileNav">

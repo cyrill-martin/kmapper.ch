@@ -1,0 +1,21 @@
+# Content for pages/home.vue, served via server/api/content/[slug].get.ts
+# Any object whose keys are exactly "de"/"en" is treated as a translated value
+# and resolved to the current locale by the usePageContent composable.
+seo:
+  title:
+    de: "Ihre Daten und Informationen: kuratiert, organisiert, publiziert"
+    en: "Your data and information: curated, organized, published"
+  description:
+    de: "Kuration, Organisation und Publikation Ihrer Daten und Informationen. Die kmapper GmbH offeriert Business-Analyse, Requirements Engineering und Entwicklung."
+    en: "Curation, organization, and publication of your data and information. kmapper GmbH offers business analysis, requirements engineering, and development."
+  keywords:
+    de: "Datenkuration, Datenorganisation, Datenpublikation, Requirements Engineering, Business-Analyse, Entwicklung"
+    en: "data curation, data organization, data publication, requirements engineering, business analysis, development"
+  # Path under /public. This page used Directus's site-wide default image
+  # (see usePageSeo's DEFAULT_IMAGE), so it's left unset here.
+
+hero:
+  # HTML is allowed here (rendered with v-html in home.vue).
+  content:
+    de: "<p>Business-Analyse, <br>Requirements Engineering<br>und Entwicklung</p>\n<p>... f&uuml;r komplette Projekte <br>oder zur gezielten Unterst&uuml;tzung.</p>"
+    en: "<p>Business Analysis, <br>Requirements Engineering,&nbsp;<br>and Development</p>\n<p>...for complete projects&nbsp;<br>or as specialized support.</p>"

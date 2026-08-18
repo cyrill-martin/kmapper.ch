@@ -1,0 +1,27 @@
+# Content for pages/curation.vue (via components/ServicePage.vue)
+title:
+  de: "Kuration"
+  en: "Curation"
+imageAlt:
+  de: "Ein chaotischer Haufen von Akten, Tapes, Kabeln, Disketten, Dokumenten, etc."
+  en: "A chaotic pile of files, tapes, cables, floppy disks, documents, etc."
+visualKeywords:
+  de: ["Sichten", "Bewerten", "Auswählen", "Bereinigen", "Aufbereiten"]
+  en: ["Explore", "Evaluate", "Select", "Cleanse", "Prepare"]
+image: /images/service-curation.png
+content:
+  de: "<p>Datenbest&auml;nde werden gesichtet, bewertet und ausgew&auml;hlt. Wo n&ouml;tig, wird bereinigt und zusammengef&uuml;hrt.</p>"
+  en: "<p>Data sets are reviewed, evaluated, and selected. Where necessary, they are cleaned and merged.</p>"
+# Route name to link to next (see nuxt.config.ts i18n.pages).
+nextRoute: organization
+
+seo:
+  title:
+    de: "Kuration Ihrer Daten und Informationen"
+    en: "Curation of your data and information"
+  description:
+    de: "kmapper sichtet, bewertet und karatiert Ihre Daten- und Informationsbestände."
+    en: "kmapper reviews, evaluates, and curates your data and information."
+  keywords:
+    de: "Datenkuration, Datenbereinigung, Datenaufbereitung"
+    en: "data curation, data cleansing, data preparation"

@@ -1,7 +1,7 @@
 <script setup>
 import { NDrawer, NDrawerContent } from "naive-ui";
 const { showMobileNav, closeMobileNav } = useMobileNav();
-const { t } = await useLabels();
+const { t } = useI18n();
 </script>
 
 <template>

@@ -4,9 +4,8 @@
 .env.local
 .env.*.local
 
-# Directus
-directus/database/*.db
-directus/uploads/
+# Local-only Directus export (kept around while migrating content to YAML)
+database/
 
 # Nuxt
 frontend/node_modules/
@@ -18,7 +17,7 @@ frontend/dist/
 .vscode/
 .idea/
 
-# Kanboard CSS
+# Kanboard
 kanboard/ 
 
 # OS

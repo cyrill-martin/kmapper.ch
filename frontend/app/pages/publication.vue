@@ -1,7 +1,7 @@
 <script setup>
-const publication = reactive(useContent("services", 3));
+const { content: publication, pending, error } = useContent("publication");
 </script>
 
 <template>
-  <ServicePage v-if="publication" :service="publication" :id="3" />
+  <ServicePage :service="publication" :pending="pending" :error="error" />
 </template>

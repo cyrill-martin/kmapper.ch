@@ -1,0 +1,21 @@
+# Content for pages/imprint.vue
+title:
+  de: "Impressum"
+  en: "Imprint"
+content:
+  de: "<h3>1. Verantwortliche Instanz</h3>\n<p>kmapper GmbH<br>Austrasse 52<br>4051 Basel<br>Schweiz</p>\n<p><strong>Telefon</strong>: <a href=\"tel:+41797456205\" target=\"_blank\" rel=\"noopener\">+41 79 745 62 05</a><br><strong>E-Mail</strong>: <a href=\"mailto:mail@kmapper.ch\">mail@kmapper.ch</a></p>\n<h3>2. Vertretungsberechtigte Personen</h3>\n<p>Cyrill Martin, Gesch&auml;ftsf&uuml;hrer</p>\n<h3>3. Handelsregistereintrag</h3>\n<p><strong>Eingetragener Firmenname</strong>: kmapper GmbH<br><strong>Nummer</strong>: CHE-409.729.612<br><strong>Handelsregisteramt</strong>: Basel-Stadt</p>\n<h3>4. Mehrwehrtsteuernummer</h3>\n<p>CHE-409.729.612 MWST</p>\n<h3>5. Haftungsausschluss</h3>\n<p class=\"font-claude-response-body break-words whitespace-normal leading-[1.7]\">Die Inhalte dieser Website werden mit gr&ouml;sster Sorgfalt erstellt. Wir &uuml;bernehmen jedoch keine Gew&auml;hr f&uuml;r Aktualit&auml;t, Richtigkeit oder Vollst&auml;ndigkeit der Inhalte. Haftungsanspr&uuml;che f&uuml;r Sch&auml;den, die durch die Nutzung oder Nichtnutzung der Inhalte entstehen, sind ausgeschlossen, soweit kein vors&auml;tzliches oder grob fahrl&auml;ssiges Verschulden vorliegt.</p>\n<p class=\"font-claude-response-body break-words whitespace-normal leading-[1.7]\">Verweise und Links auf Webseiten Dritter liegen ausserhalb unseres Verantwortungsbereichs. Es wird jegliche Verantwortung f&uuml;r solche Webseiten abgelehnt. Der Zugriff und die Nutzung solcher Webseiten erfolgen auf eigene Gefahr des jeweiligen Nutzers.</p>\n<h3>6. Urheberrechtserkl&auml;rung</h3>\n<p>Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf dieser Website geh&ouml;ren ausschliesslich der kmapper GmbH oder den speziell genannten Rechteinhabern. F&uuml;r die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung des Urheberrechtstr&auml;gers im Voraus einzuholen.</p>\n<h3>7. Realisierung</h3>\n<p><strong>Website</strong>: kmapper GmbH<br><strong>Illustrationen</strong>: kmapper GmbH<br><strong>Fotos</strong>: kmapper GmbH<br><strong>Logo</strong>: <a href=\"https://www.hejkarlie.ch/\" target=\"_blank\" rel=\"noopener\">Karlie GmbH</a></p>"
+  en: "<p>This website is operated under Swiss jurisdiction.&nbsp;<br>For legal information, please refer to the German imprint: <a class=\"site-link\" href=\"/de/impressum\">Impressum</a></p>"
+
+# Directus reused the home page's SEO block for this page (same title/description/keywords
+# as home.yaml) rather than having dedicated copy — carried over as-is; worth writing
+# page-specific SEO copy for this page at some point.
+seo:
+  title:
+    de: "Ihre Daten und Informationen: kuratiert, organisiert, publiziert"
+    en: "Your data and information: curated, organized, published"
+  description:
+    de: "Kuration, Organisation und Publikation Ihrer Daten und Informationen. Die kmapper GmbH offeriert Business-Analyse, Requirements Engineering und Entwicklung."
+    en: "Curation, organization, and publication of your data and information. kmapper GmbH offers business analysis, requirements engineering, and development."
+  keywords:
+    de: "Datenkuration, Datenorganisation, Datenpublikation, Requirements Engineering, Business-Analyse, Entwicklung"
+    en: "data curation, data organization, data publication, requirements engineering, business analysis, development"

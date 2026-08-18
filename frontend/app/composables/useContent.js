@@ -1,42 +1,39 @@
-// This composable fetches content from any Directus collection
-// For singletons: useContent('collection_name')
-// For regular collections: useContent('collection_name', id)
-export const useContent = (collection, id = null, extraFields = []) => {
-  const { getItems } = useDirectus();
+// Fetches a page's content from content/<slug>.yaml (via server/api/content)
+// and resolves every { de, en } node to the current locale.
+const TRANSLATABLE_LOCALES = ["de", "en"];
+
+function localize(node, locale) {
+  if (Array.isArray(node)) {
+    return node.map((item) => localize(item, locale));
+  }
+
+  if (node && typeof node === "object") {
+    const keys = Object.keys(node);
+    const isTranslated =
+      keys.length > 0 && keys.every((key) => TRANSLATABLE_LOCALES.includes(key));
+
+    if (isTranslated) {
+      return node[locale] ?? node[TRANSLATABLE_LOCALES.find((l) => l in node)];
+    }
+
+    return Object.fromEntries(
+      keys.map((key) => [key, localize(node[key], locale)]),
+    );
+  }
+
+  return node;
+}
+
+export const useContent = (slug) => {
   const { locale } = useI18n();
-  const { directusLocale } = useDirectusLocale();
-  const { isPreview, getFilter } = usePreview();
 
-  const cacheKey = `${collection}-${id || "singleton"}-${locale.value}-${isPreview.value}-${JSON.stringify(extraFields)}`;
-
-  const { data, pending, error } = useAsyncData(
-    cacheKey,
-    () =>
-      getItems(collection, {
-        filter: getFilter(id),
-        fields: [
-          "*",
-          "translations.*",
-          "seo.*",
-          "seo.translations.*",
-          ...extraFields,
-        ],
-        deep: {
-          translations: {
-            _filter: { languages_code: { _eq: directusLocale.value } },
-          },
-          seo: {
-            translations: {
-              _filter: { languages_code: { _eq: directusLocale.value } },
-            },
-          },
-        },
-        limit: 1,
-      }),
-    { dedupe: "defer" }, // reuse cached result during SSR→CSR hydration
+  const { data, pending, error } = useAsyncData(`content-${slug}`, () =>
+    $fetch(`/api/content/${slug}`),
   );
+
   const content = computed(() =>
-    Array.isArray(data.value) ? data.value[0] : data.value,
+    data.value ? localize(data.value, locale.value) : null,
   );
+
   return { content, pending, error };
 };

@@ -1,7 +1,7 @@
 <script setup>
-const organization = reactive(useContent("services", 2));
+const { content: organization, pending, error } = useContent("organization");
 </script>
 
 <template>
-  <ServicePage v-if="organization" :service="organization" :id="2" />
+  <ServicePage :service="organization" :pending="pending" :error="error" />
 </template>

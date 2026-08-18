@@ -1,48 +1,12 @@
 services:
-  directus:
-    image: directus/directus:11.17.4
-    ports:
-      - "127.0.0.1:8055:8055"
-    volumes:
-      - ./directus/database:/directus/database
-      - ./directus/uploads:/directus/uploads
-      - ./directus/extensions:/directus/extensions
-    environment:
-      SECRET: ${DIRECTUS_SECRET}
-      ADMIN_EMAIL: ${DIRECTUS_ADMIN_EMAIL}
-      ADMIN_PASSWORD: ${DIRECTUS_ADMIN_PASSWORD}
-      DB_CLIENT: "sqlite3"
-      DB_FILENAME: "/directus/database/data.db"
-      WEBSOCKETS_ENABLED: "true"
-      CORS_ENABLED: "true"
-      CORS_ORIGIN: ${CORS_ORIGIN}
-      PUBLIC_URL: ${DIRECTUS_PUBLIC_URL}
-      TELEMETRY: "false"
-      CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "'self' ${CORS_ORIGIN}"
-      CONTENT_SECURITY_POLICY_DIRECTIVES__CHILD_SRC: "'self' blob: ${CORS_ORIGIN}"
-      CACHE_AUTO_PURGE: "true"
-      CORS_CREDENTIALS: "true"
-    restart: unless-stopped
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
-
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile.prod
-      args:
-        NUXT_PUBLIC_DIRECTUS_URL: ${NUXT_PUBLIC_DIRECTUS_URL}
     ports:
       - "127.0.0.1:3000:3000"
     environment:
-      NUXT_DIRECTUS_URL: http://directus:8055
-      NUXT_PUBLIC_DIRECTUS_URL: ${NUXT_PUBLIC_DIRECTUS_URL}
       NUXT_PUBLIC_BASE_URL: ${NUXT_PUBLIC_BASE_URL}
-    depends_on:
-      - directus
     restart: unless-stopped
     logging:
       driver: "json-file"

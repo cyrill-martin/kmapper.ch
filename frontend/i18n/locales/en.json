@@ -1,0 +1,29 @@
+{
+  "service": {
+    "curation": "Curation",
+    "organization": "Organization",
+    "publication": "Publication"
+  },
+  "home": {
+    "claimAnd": "and",
+    "claimEnd": "of your Data"
+  },
+  "nav": {
+    "trigger": "Menu",
+    "close": "Close",
+    "projects": "Projects",
+    "about": "About",
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy"
+  },
+  "contact": {
+    "company": "kmapper GmbH",
+    "city": "Basel",
+    "country": "Switzerland",
+    "phone": "+41 79 745 62 05",
+    "mail": "mail{'@'}kmapper.ch"
+  },
+  "common": {
+    "copyright": "© 2026 kmapper GmbH"
+  }
+}

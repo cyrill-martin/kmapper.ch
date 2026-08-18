@@ -1,0 +1,27 @@
+# Content for pages/publication.vue (via components/ServicePage.vue)
+title:
+  de: "Publikation"
+  en: "Publication"
+imageAlt:
+  de: "Ein Vintage-Computer mit Röhrenmonitor auf dem moderne Datenvisualisierungen zu sehen sind."
+  en: "A vintage computer with a CRT monitor displaying modern data visualizations."
+visualKeywords:
+  de: ["Visualisieren", "Entwickeln", "Gestalten", "Publizieren", "Bereitstellen"]
+  en: ["Visualise", "Develop", "Design", "Publish", "Deploy"]
+image: /images/service-publication.png
+content:
+  de: "<p>Strukturierte Daten werden als Web-L&ouml;sungen, Visualisierungen oder Dokumentationen zug&auml;nglich gemacht. Wo n&ouml;tig, wird entwickelt, gestaltet und optimiert.</p>"
+  en: "<p>Structured data is made accessible as web solutions, visualizations, or documentation. Where necessary, development, design, and optimization take place.</p>"
+# Route name to link to next (see nuxt.config.ts i18n.pages).
+nextRoute: projects
+
+seo:
+  title:
+    de: "Publikation Ihrer Daten und Informationen"
+    en: "Publication of your data and information"
+  description:
+    de: "kmapper visualisiert, gestaltet und publiziert Ihre Daten und Informationen"
+    en: "kmapper visualizes, designs, and publishes your data and information"
+  keywords:
+    de: "Datenvisualisierung, Datendesign, Datenpublikation"
+    en: "data visualization, data design, data publication"
