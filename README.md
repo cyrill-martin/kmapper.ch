@@ -4,14 +4,14 @@
 
 ```mermaid
 flowchart TB
-    A["GitHub Repository<br/>Source Code, Content (YAML) &amp; Config"]
-    A -->|"git pull — manual deployment via SSH"| B
+    A["GitHub Repository:<br/>Source Code<br/>Content (YAML)<br/>Config"]
+    A -->|"git pull<br/>manual deployment<br/>via SSH"| B
 
     subgraph B["Ubuntu Production Server"]
         direction TB
-        C["Nginx Reverse Proxy<br/>SSL Termination via Let's Encrypt, Routing<br/>Port 80, 443"]
+        C["Nginx Reverse Proxy<br/>SSL Termination via<br/>Let's Encrypt<br/>Routing<br/>Port 80, 443"]
         subgraph D["Docker Compose"]
-            E["Nuxt 4 (SSR)<br/>Frontend + Nitro API<br/>content/*.yaml bundled in image<br/>Port 3000"]
+            E["Nuxt 4 (SSR)<br/>Frontend + Nitro API<br/>content/*.yaml bundled<br/>inimage<br/>Port 3000"]
         end
         C --> D
     end

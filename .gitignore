@@ -4,9 +4,6 @@
 .env.local
 .env.*.local
 
-# Local-only Directus export (kept around while migrating content to YAML)
-database/
-
 # Nuxt
 frontend/node_modules/
 frontend/.nuxt/
